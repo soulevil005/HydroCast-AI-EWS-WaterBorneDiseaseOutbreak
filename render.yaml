@@ -3,7 +3,7 @@ services:
     name: hydrocast-api
     runtime: python
     plan: free
-    region: oregon
+    region: singapore
     rootDir: .
     buildCommand: pip install -r frontend/backend/render-requirements.txt
     startCommand: uvicorn frontend.backend.dashboard_api:app --host 0.0.0.0 --port $PORT
@@ -20,7 +20,7 @@ services:
     name: hydrocast-dashboard
     runtime: node
     plan: free
-    region: oregon
+    region: singapore
     rootDir: frontend
     buildCommand: npm install && npm run build
     startCommand: npm run start
