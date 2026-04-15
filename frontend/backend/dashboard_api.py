@@ -6,12 +6,8 @@ from pathlib import Path
 from typing import Any
 
 from fastapi import FastAPI
+from fastapi import HTTPException
 from fastapi.middleware.cors import CORSMiddleware
-
-try:
-    from frontend.export_dashboard_data import build_bundle, normalize
-except ModuleNotFoundError:
-    from export_dashboard_data import build_bundle, normalize
 
 PROJECT_ROOT = Path(os.environ.get("HYDROCAST_PROJECT_ROOT", Path(__file__).resolve().parents[2])).resolve()
 GEOJSON_PATH = PROJECT_ROOT / "src" / "data" / "geojson" / "maharashtra_districts.geojson"
@@ -56,6 +52,21 @@ app.add_middleware(
 _cache: dict[str, Any] = {"stamp": None, "bundle": None, "geojson": None}
 
 
+def _load_bundle_helpers():
+    try:
+        from frontend.export_dashboard_data import build_bundle, normalize
+        return build_bundle, normalize
+    except ModuleNotFoundError:
+        try:
+            from export_dashboard_data import build_bundle, normalize
+            return build_bundle, normalize
+        except ModuleNotFoundError as exc:
+            raise RuntimeError(
+                "HydroCast dashboard bundle helpers could not be imported. "
+                "Check the Render Python environment and project root configuration."
+            ) from exc
+
+
 def _source_stamp() -> tuple[float, ...]:
     return tuple(path.stat().st_mtime for path in SOURCE_PATHS if path.exists())
 
@@ -65,14 +76,18 @@ def _ensure_cache() -> None:
     if _cache["stamp"] == stamp and _cache["bundle"] is not None and _cache["geojson"] is not None:
         return
 
+    build_bundle, normalize = _load_bundle_helpers()
     _cache["bundle"] = normalize(build_bundle())
     _cache["geojson"] = json.loads(GEOJSON_PATH.read_text(encoding="utf-8"))
     _cache["stamp"] = stamp
 
 
 def _bundle() -> dict[str, Any]:
-    _ensure_cache()
-    return _cache["bundle"]
+    try:
+        _ensure_cache()
+        return _cache["bundle"]
+    except Exception as exc:
+        raise HTTPException(status_code=500, detail=f"HydroCast bundle load failed: {exc}") from exc
 
 
 @app.get("/health")

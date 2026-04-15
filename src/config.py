@@ -7,7 +7,10 @@ Never use magic numbers anywhere else — import from here.
 from __future__ import annotations
 from dataclasses import dataclass, field
 from pathlib import Path
-import torch
+try:
+    import torch
+except ModuleNotFoundError:  # Optional for lightweight dashboard/API deployments
+    torch = None
 
 # ══════════════════════════════════════════════
 # ROOT PATHS
@@ -240,7 +243,7 @@ class TrainingConfig:
     train_split: float     = 0.70
     val_split: float       = 0.15
     test_split: float      = 0.15
-    device: str            = "cuda" if torch.cuda.is_available() else "cpu"
+    device: str            = "cuda" if torch and torch.cuda.is_available() else "cpu"
     num_workers: int       = 2
     pin_memory: bool       = True
 

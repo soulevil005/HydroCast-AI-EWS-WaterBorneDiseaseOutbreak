@@ -9,6 +9,8 @@ services:
     startCommand: uvicorn frontend.backend.dashboard_api:app --host 0.0.0.0 --port $PORT
     healthCheckPath: /health
     envVars:
+      - key: PYTHON_VERSION
+        value: 3.10.16
       - key: HYDROCAST_PROJECT_ROOT
         value: /opt/render/project/src
       - key: FRONTEND_ORIGIN
