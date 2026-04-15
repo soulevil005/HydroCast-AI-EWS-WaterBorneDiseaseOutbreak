@@ -1,0 +1,13 @@
+Disease,Horizon,RMSE,MAE
+Cholera,Week+1,0.4951,0.439
+Cholera,Week+2,0.4953,0.439
+Cholera,Week+3,0.4961,0.4396
+Cholera,Week+4,0.4936,0.4373
+Typhoid,Week+1,0.4619,0.4395
+Typhoid,Week+2,0.4621,0.4393
+Typhoid,Week+3,0.4621,0.4383
+Typhoid,Week+4,0.4614,0.4376
+ADD,Week+1,0.4448,0.4068
+ADD,Week+2,0.4448,0.4066
+ADD,Week+3,0.4443,0.4054
+ADD,Week+4,0.4444,0.4056

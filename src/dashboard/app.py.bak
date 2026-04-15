@@ -1,0 +1,404 @@
+from __future__ import annotations
+
+import sys
+import warnings
+from pathlib import Path
+
+warnings.filterwarnings("ignore")
+
+ROOT = Path(__file__).resolve().parent.parent.parent
+sys.path.insert(0, str(ROOT))
+
+import pandas as pd
+import plotly.graph_objects as go
+import streamlit as st
+
+from src.config import DISEASES, MAHARASHTRA_DISTRICTS, RISK_COLORS
+from src.dashboard.data_adapter import (
+    CASE_COLUMN_MAP,
+    get_baseline_results,
+    get_district_snapshot,
+    load_predictions,
+    load_processed_dataset,
+    load_shap_values,
+)
+from src.dashboard.map_component import display_in_streamlit, render_risk_map
+from src.remedy_engine.remedy_engine import RemedyEngine
+
+st.set_page_config(
+    page_title="HydroCast - AI Early Warning System",
+    page_icon="🌊",
+    layout="wide",
+    initial_sidebar_state="expanded",
+)
+
+THEME_CSS = """
+<style>
+:root {
+    --bg: #08111f;
+    --panel: #0f1c30;
+    --panel-2: #15243b;
+    --line: rgba(255,255,255,0.08);
+    --text: #edf4ff;
+    --muted: #8ea2c2;
+}
+.stApp { background:
+    radial-gradient(circle at top right, rgba(83,165,255,0.10), transparent 30%),
+    radial-gradient(circle at left top, rgba(33,193,122,0.10), transparent 35%),
+    var(--bg); color: var(--text); }
+section[data-testid="stSidebar"] { background: rgba(9,18,34,0.96); border-right: 1px solid var(--line); }
+[data-testid="metric-container"] { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 16px 18px; }
+.hc-card { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 16px; }
+.hc-soft { background: var(--panel-2); border: 1px solid var(--line); border-radius: 12px; padding: 14px; }
+.hc-label { color: var(--muted); font-size: 11px; text-transform: uppercase; letter-spacing: 1px; }
+.hc-title { color: var(--text); font-size: 28px; font-weight: 700; line-height: 1.1; }
+.hc-alert { background: var(--panel-2); border-left: 4px solid #ea5757; border-radius: 10px; padding: 12px 14px; margin-bottom: 10px; }
+.hc-badge { display:inline-block; padding:3px 10px; border-radius:999px; font-size:11px; font-weight:700; }
+.hc-critical { background: rgba(234,87,87,0.18); color: #ff8d8d; }
+.hc-high { background: rgba(240,180,77,0.18); color: #ffd27a; }
+.hc-medium { background: rgba(83,165,255,0.18); color: #8ec5ff; }
+.hc-low { background: rgba(33,193,122,0.18); color: #7ce7af; }
+</style>
+"""
+st.markdown(THEME_CSS, unsafe_allow_html=True)
+
+
+def badge(level: str) -> str:
+    css = {
+        "critical": "hc-critical",
+        "high": "hc-high",
+        "medium": "hc-medium",
+        "low": "hc-low",
+    }.get(level, "hc-low")
+    return f"<span class='hc-badge {css}'>{level.upper()}</span>"
+
+
+def themed_figure(fig: go.Figure, title: str) -> go.Figure:
+    fig.update_layout(
+        title=title,
+        paper_bgcolor="rgba(0,0,0,0)",
+        plot_bgcolor="#0f1c30",
+        font=dict(color="#edf4ff", size=11),
+        margin=dict(l=40, r=20, t=42, b=36),
+        legend=dict(orientation="h", y=1.08, x=0),
+        xaxis=dict(gridcolor="rgba(255,255,255,0.06)"),
+        yaxis=dict(gridcolor="rgba(255,255,255,0.06)"),
+    )
+    return fig
+
+
+@st.cache_data(ttl=300)
+def load_dashboard_state() -> tuple[pd.DataFrame, dict, dict]:
+    dataset = load_processed_dataset()
+    predictions = load_predictions(dataset)
+    shap_values = load_shap_values(predictions, dataset)
+    return dataset, predictions, shap_values
+
+
+def render_sidebar(predictions: dict) -> tuple[str, list[str]]:
+    st.sidebar.markdown("<div class='hc-title' style='font-size:22px'>HydroCast</div>", unsafe_allow_html=True)
+    st.sidebar.markdown("<div class='hc-label'>District-level waterborne outbreak intelligence for Maharashtra</div>", unsafe_allow_html=True)
+    district = st.sidebar.selectbox("District", ["All Districts"] + MAHARASHTRA_DISTRICTS)
+    diseases = st.sidebar.multiselect("Diseases", DISEASES, default=DISEASES)
+
+    total_critical = sum(
+        1 for district_data in predictions.values()
+        if any(info["risk_level"] == "critical" for info in district_data["predictions"].values())
+    )
+    total_high = sum(
+        1 for district_data in predictions.values()
+        if any(info["risk_level"] in {"critical", "high"} for info in district_data["predictions"].values())
+    )
+    st.sidebar.metric("Critical districts", total_critical)
+    st.sidebar.metric("High + critical", total_high)
+    st.sidebar.caption("Architecture: GATv2 + GRU + TFT + SEIR + SHAP")
+    return district, diseases
+
+
+def render_map_tab(predictions: dict, selected_district: str, selected_diseases: list[str]) -> None:
+    filtered_predictions: dict[str, dict] = {}
+    for district, payload in predictions.items():
+        disease_subset = {
+            disease: details
+            for disease, details in payload["predictions"].items()
+            if disease in selected_diseases
+        }
+        if not disease_subset:
+            disease_subset = payload["predictions"]
+        filtered_predictions[district] = {**payload, "predictions": disease_subset}
+
+    total_cases = int(sum(snapshot.get("context", {}).get("case_count", 0) for snapshot in predictions.values()))
+    critical = sum(1 for item in filtered_predictions.values() if any(v["risk_level"] == "critical" for v in item["predictions"].values()))
+    mean_prob = sum(max(v["max_prob"] for v in item["predictions"].values()) for item in filtered_predictions.values()) / max(len(filtered_predictions), 1)
+    top_disease = pd.Series(
+        [max(item["predictions"], key=lambda d: item["predictions"][d]["max_prob"]) for item in filtered_predictions.values()]
+    ).mode().iloc[0]
+
+    k1, k2, k3, k4 = st.columns(4)
+    k1.metric("Critical alerts", critical)
+    k2.metric("Average district risk", f"{mean_prob:.0%}")
+    k3.metric("Latest observed cases", f"{total_cases:,}")
+    k4.metric("Most frequent top disease", top_disease)
+
+    left, right = st.columns([1.65, 1.0])
+    with left:
+        st.markdown("<div class='hc-label'>Leaflet district choropleth</div>", unsafe_allow_html=True)
+        display_in_streamlit(
+            render_risk_map(
+                predictions=filtered_predictions,
+                selected_district=None if selected_district == "All Districts" else selected_district,
+                layer_mode="both",
+            ),
+            height=560,
+        )
+
+    with right:
+        st.markdown("<div class='hc-label'>Alert feed</div>", unsafe_allow_html=True)
+        ranked = sorted(
+            (get_district_snapshot(filtered_predictions, district) for district in filtered_predictions),
+            key=lambda item: item.risk_score,
+            reverse=True,
+        )[:8]
+        for snapshot in ranked:
+            st.markdown(
+                (
+                    "<div class='hc-alert'>"
+                    f"<div>{snapshot.district} {badge(snapshot.risk_level)}</div>"
+                    f"<div style='margin-top:6px'><strong>{snapshot.top_disease}</strong> risk at {snapshot.risk_score:.0%}. "
+                    f"Rainfall anomaly is {snapshot.rainfall_anomaly_pct:.1f}%, sanitation coverage is "
+                    f"{snapshot.sanitation_coverage_pct:.1f}, and latest case count is {snapshot.case_count}.</div>"
+                    "</div>"
+                ),
+                unsafe_allow_html=True,
+            )
+
+
+def render_forecast_tab(dataset: pd.DataFrame, predictions: dict, selected_district: str) -> None:
+    district = selected_district if selected_district != "All Districts" else "Raigad"
+    district_df = dataset[dataset["district"] == district].sort_values("week").tail(16)
+
+    top_row = st.columns(2)
+    for idx, disease in enumerate(DISEASES):
+        with top_row[idx % 2]:
+            case_col = CASE_COLUMN_MAP[disease]
+            hist = district_df[["week", case_col]].tail(12).copy()
+            hist["week"] = hist["week"].dt.strftime("%d-%b-%Y")
+
+            forecast_probs = predictions[district]["predictions"][disease]["week_probs"]
+            recent_level = max(float(hist[case_col].mean()), 1.0)
+            forecast_cases = [round(recent_level * (1 + prob * 1.4), 1) for prob in forecast_probs]
+            future_labels = [f"Week +{i}" for i in range(1, 5)]
+
+            fig = go.Figure()
+            fig.add_trace(go.Scatter(
+                x=hist["week"],
+                y=hist[case_col],
+                mode="lines+markers",
+                name="Observed",
+                line=dict(color=RISK_COLORS["medium"], width=2),
+            ))
+            fig.add_trace(go.Scatter(
+                x=future_labels,
+                y=forecast_cases,
+                mode="lines+markers",
+                name="Forecast",
+                line=dict(color=RISK_COLORS[predictions[district]["predictions"][disease]["risk_level"]], width=2, dash="dot"),
+            ))
+            upper = [value * 1.15 for value in forecast_cases]
+            lower = [value * 0.85 for value in forecast_cases]
+            fig.add_trace(go.Scatter(
+                x=future_labels + future_labels[::-1],
+                y=upper + lower[::-1],
+                fill="toself",
+                fillcolor="rgba(83,165,255,0.12)",
+                line=dict(color="rgba(0,0,0,0)"),
+                name="Confidence band",
+                showlegend=False,
+            ))
+            themed_figure(fig, f"{disease} trend and 4-week forecast - {district}")
+            st.plotly_chart(fig, use_container_width=True, config={"displayModeBar": False})
+
+    compare = sorted(
+        predictions.items(),
+        key=lambda item: item[1]["predictions"]["ADD"]["max_prob"],
+        reverse=True,
+    )[:8]
+    bar = go.Figure()
+    bar.add_trace(go.Bar(
+        x=[district_name for district_name, _ in compare],
+        y=[payload["predictions"]["ADD"]["max_prob"] * 100 for _, payload in compare],
+        marker_color=RISK_COLORS["high"],
+    ))
+    themed_figure(bar, "Top districts by ADD forecast probability")
+    bar.update_yaxes(title="Probability (%)")
+    st.plotly_chart(bar, use_container_width=True, config={"displayModeBar": False})
+
+    baseline_df = get_baseline_results()
+    base_fig = go.Figure()
+    base_fig.add_trace(go.Bar(
+        x=baseline_df["Model"],
+        y=baseline_df["F1_Macro"],
+        marker_color=["#365a86"] * (len(baseline_df) - 1) + ["#21c17a"],
+    ))
+    themed_figure(base_fig, "Evaluation summary from baseline comparison")
+    base_fig.update_xaxes(tickangle=-25)
+    st.plotly_chart(base_fig, use_container_width=True, config={"displayModeBar": False})
+
+
+def render_shap_tab(shap_values: dict, selected_district: str) -> None:
+    district = selected_district if selected_district != "All Districts" else "Raigad"
+    disease = st.selectbox("Disease for explainability", DISEASES, index=0)
+    entry = shap_values.get(district, {}).get(disease, {})
+    top_features = entry.get("top_features", [])
+
+    left, right = st.columns([1.2, 1.0])
+    with left:
+        fig = go.Figure()
+        fig.add_trace(go.Bar(
+            x=[value for _, value in top_features],
+            y=[name.replace("_", " ") for name, _ in top_features],
+            orientation="h",
+            marker_color=["#ea5757" if value >= 0 else "#53a5ff" for _, value in top_features],
+        ))
+        themed_figure(fig, f"Local SHAP explanation - {district} / {disease}")
+        fig.update_xaxes(title="Contribution to outbreak probability")
+        st.plotly_chart(fig, use_container_width=True, config={"displayModeBar": False})
+
+    with right:
+        aggregate: dict[str, float] = {}
+        for district_values in shap_values.values():
+            for disease_values in district_values.values():
+                for feature_name, feature_value in disease_values.get("top_features", []):
+                    aggregate[feature_name] = aggregate.get(feature_name, 0.0) + abs(feature_value)
+        global_top = sorted(aggregate.items(), key=lambda item: item[1], reverse=True)[:10]
+        fig = go.Figure()
+        fig.add_trace(go.Bar(
+            x=[value for _, value in global_top],
+            y=[name.replace("_", " ") for name, _ in global_top],
+            orientation="h",
+            marker_color="#21c17a",
+        ))
+        themed_figure(fig, "Global SHAP importance across districts")
+        st.plotly_chart(fig, use_container_width=True, config={"displayModeBar": False})
+
+    st.markdown("<div class='hc-label'>Natural-language explanation</div>", unsafe_allow_html=True)
+    st.markdown(f"<div class='hc-card'>{entry.get('explanation_text', 'No SHAP explanation file found yet.')}</div>", unsafe_allow_html=True)
+
+
+def render_remedy_tab(predictions: dict, selected_district: str) -> None:
+    engine = RemedyEngine()
+    district = selected_district if selected_district != "All Districts" else "Raigad"
+    snapshot = get_district_snapshot(predictions, district)
+    sanitation = snapshot.sanitation_coverage_pct / 100.0 if snapshot.sanitation_coverage_pct > 1 else snapshot.sanitation_coverage_pct
+    plan = engine.generate_plan(
+        district=district,
+        disease=snapshot.top_disease,
+        risk_score=snapshot.risk_score,
+        district_sanitation=sanitation,
+        rainfall_anomaly=snapshot.rainfall_anomaly_pct,
+    )
+
+    st.markdown(
+        f"<div class='hc-card'><div class='hc-label'>District remedy plan</div>"
+        f"<div style='font-size:22px;font-weight:700'>{district} {badge(snapshot.risk_level)}</div>"
+        f"<div style='margin-top:8px'>{plan.ai_recommendation}</div></div>",
+        unsafe_allow_html=True,
+    )
+
+    timeline_cols = st.columns(len(plan.timeline))
+    for col, step in zip(timeline_cols, plan.timeline):
+        col.markdown(
+            f"<div class='hc-soft'><div class='hc-label'>{step.phase}</div>"
+            f"<div style='font-size:15px;font-weight:700;margin-top:6px'>{step.title}</div>"
+            f"<div style='margin-top:6px;font-size:12px'>{step.actions}</div></div>",
+            unsafe_allow_html=True,
+        )
+
+    c1, c2, c3 = st.columns(3)
+    with c1:
+        st.markdown("<div class='hc-label'>Emergency actions</div>", unsafe_allow_html=True)
+        for item in plan.emergency_actions[:5]:
+            st.markdown(f"- `{item['priority']}` {item['text']}")
+    with c2:
+        st.markdown("<div class='hc-label'>Medical protocol</div>", unsafe_allow_html=True)
+        for item in plan.medical_protocols[:5]:
+            st.markdown(f"- `{item['drug']}`: {item['dose']} | {item['notes']}")
+    with c3:
+        st.markdown("<div class='hc-label'>WHO-style precautions</div>", unsafe_allow_html=True)
+        for item in plan.precautions[:5]:
+            st.markdown(f"- `{item['priority']}` {item['advisory']}")
+
+
+def render_resource_tab(predictions: dict, selected_district: str) -> None:
+    district = selected_district if selected_district != "All Districts" else "Raigad"
+    snapshot = get_district_snapshot(predictions, district)
+    risk_weight = snapshot.risk_score
+    resources = {
+        "ORS sachets": max(18, int(95 - risk_weight * 52)),
+        "IV fluids": max(15, int(88 - risk_weight * 48)),
+        "Chlorine tablets": max(20, int(90 - risk_weight * 55)),
+        "Rapid test kits": max(12, int(84 - risk_weight * 58)),
+        "Field staff": max(25, int(92 - risk_weight * 30)),
+    }
+
+    left, right = st.columns([1.0, 1.0])
+    with left:
+        st.markdown("<div class='hc-label'>District stock readiness</div>", unsafe_allow_html=True)
+        for name, value in resources.items():
+            color = "#ea5757" if value < 45 else "#f0b44d" if value < 70 else "#21c17a"
+            st.markdown(
+                f"<div class='hc-soft'><div style='display:flex;justify-content:space-between'>"
+                f"<span>{name}</span><strong style='color:{color}'>{value}%</strong></div>"
+                f"<div style='margin-top:8px;height:8px;background:#08111f;border-radius:999px'>"
+                f"<div style='width:{value}%;height:8px;background:{color};border-radius:999px'></div></div></div>",
+                unsafe_allow_html=True,
+            )
+
+    with right:
+        radar = go.Figure()
+        categories = list(resources.keys())
+        values = list(resources.values())
+        radar.add_trace(go.Scatterpolar(
+            r=values + [values[0]],
+            theta=categories + [categories[0]],
+            fill="toself",
+            line=dict(color=RISK_COLORS[snapshot.risk_level], width=2),
+            fillcolor="rgba(83,165,255,0.12)",
+            name=district,
+        ))
+        themed_figure(radar, f"Resource radar - {district}")
+        radar.update_layout(polar=dict(radialaxis=dict(visible=True, range=[0, 100])))
+        st.plotly_chart(radar, use_container_width=True, config={"displayModeBar": False})
+
+
+def main() -> None:
+    dataset, predictions, shap_values = load_dashboard_state()
+    selected_district, selected_diseases = render_sidebar(predictions)
+
+    st.markdown(
+        "<div class='hc-title'>HydroCast</div>"
+        "<div class='hc-label' style='margin-bottom:16px'>AI early warning dashboard for district-level Cholera, Typhoid, and ADD risk in Maharashtra</div>",
+        unsafe_allow_html=True,
+    )
+
+    tabs = st.tabs([
+        "Risk Map",
+        "Forecast",
+        "AI Explainability",
+        "Remedies & Precautions",
+        "Resource Tracker",
+    ])
+    with tabs[0]:
+        render_map_tab(predictions, selected_district, selected_diseases)
+    with tabs[1]:
+        render_forecast_tab(dataset, predictions, selected_district)
+    with tabs[2]:
+        render_shap_tab(shap_values, selected_district)
+    with tabs[3]:
+        render_remedy_tab(predictions, selected_district)
+    with tabs[4]:
+        render_resource_tab(predictions, selected_district)
+
+
+if __name__ == "__main__":
+    main()

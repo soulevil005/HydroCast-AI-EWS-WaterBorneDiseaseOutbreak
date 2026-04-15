@@ -1,0 +1,716 @@
+{
+  "Wardha": {
+    "Cholera": {
+      "top_features": [
+        [
+          "typhoid_cases_roll8_mean",
+          0.9657
+        ],
+        [
+          "rainfall_anomaly_pct_roll4_mean",
+          0.9524
+        ],
+        [
+          "cholera_outbreak_label",
+          0.9463
+        ],
+        [
+          "rainfall_anomaly_pct_roll8_std",
+          0.9026
+        ],
+        [
+          "cholera_cases_lag8",
+          0.8963
+        ],
+        [
+          "cholera_risk_score",
+          0.8882
+        ],
+        [
+          "cholera_cases_roll4_std",
+          0.865
+        ],
+        [
+          "rainfall_mm_lag8",
+          0.8591
+        ]
+      ],
+      "explanation_text": "Wardha district shows a MEDIUM outbreak probability of 40% for Cholera within 28 days. The primary driver is typhoid cases roll8 mean (SHAP contribution: +0.97), followed by rainfall anomaly pct roll4 mean (+0.95). Other contributing factors: cholera outbreak label (+0.95), rainfall anomaly pct roll8 std (+0.90). Heightened surveillance and preventive WASH actions are advised.",
+      "prediction": 0.4027,
+      "risk_level": "medium"
+    },
+    "Typhoid": {
+      "top_features": [
+        [
+          "rainfall_anomaly_pct_lag8",
+          0.9944
+        ],
+        [
+          "rainfall_mm_lag2",
+          0.9802
+        ],
+        [
+          "typhoid_cases_roll8_mean",
+          0.9601
+        ],
+        [
+          "add_cases_roll8_std",
+          0.9498
+        ],
+        [
+          "rainfall_mm_roll4_std",
+          0.945
+        ],
+        [
+          "rainfall_mm_roll8_mean",
+          0.9054
+        ],
+        [
+          "typhoid_cases_lag8",
+          0.8768
+        ],
+        [
+          "monsoon_flag",
+          0.8727
+        ]
+      ],
+      "explanation_text": "Wardha district shows a LOW outbreak probability of 34% for Typhoid within 28 days. The primary driver is rainfall anomaly pct lag8 (SHAP contribution: +0.99), followed by rainfall mm lag2 (+0.98). Other contributing factors: typhoid cases roll8 mean (+0.96), add cases roll8 std (+0.95). Heightened surveillance and preventive WASH actions are advised.",
+      "prediction": 0.3386,
+      "risk_level": "low"
+    },
+    "ADD": {
+      "top_features": [
+        [
+          "add_cases_roll8_mean",
+          0.9894
+        ],
+        [
+          "rainfall_mm_lag2",
+          0.9784
+        ],
+        [
+          "rainfall_anomaly_pct_roll8_mean",
+          0.9695
+        ],
+        [
+          "typhoid_risk_score",
+          0.9398
+        ],
+        [
+          "rainfall_mm_roll4_std",
+          0.9394
+        ],
+        [
+          "cholera_outbreak_label",
+          0.9263
+        ],
+        [
+          "cholera_cases_roll4_std",
+          0.9241
+        ],
+        [
+          "typhoid_cases_lag4",
+          0.9014
+        ]
+      ],
+      "explanation_text": "Wardha district shows a LOW outbreak probability of 30% for ADD within 28 days. The primary driver is add cases roll8 mean (SHAP contribution: +0.99), followed by rainfall mm lag2 (+0.98). Other contributing factors: rainfall anomaly pct roll8 mean (+0.97), typhoid risk score (+0.94). Heightened surveillance and preventive WASH actions are advised.",
+      "prediction": 0.2964,
+      "risk_level": "low"
+    }
+  },
+  "Nagpur": {
+    "Cholera": {
+      "top_features": [
+        [
+          "rainfall_mm_roll4_mean",
+          0.9908
+        ],
+        [
+          "rainfall_anomaly_pct_lag1",
+          0.9708
+        ],
+        [
+          "rainfall_mm_roll4_std",
+          0.9654
+        ],
+        [
+          "rainfall_mm_lag4",
+          0.9523
+        ],
+        [
+          "typhoid_cases_lag2",
+          0.9449
+        ],
+        [
+          "add_cases_lag1",
+          0.9056
+        ],
+        [
+          "rainfall_mm_roll8_mean",
+          0.9053
+        ],
+        [
+          "add_risk_score",
+          0.8983
+        ]
+      ],
+      "explanation_text": "Nagpur district shows a LOW outbreak probability of 38% for Cholera within 28 days. The primary driver is rainfall mm roll4 mean (SHAP contribution: +0.99), followed by rainfall anomaly pct lag1 (+0.97). Other contributing factors: rainfall mm roll4 std (+0.97), rainfall mm lag4 (+0.95). Heightened surveillance and preventive WASH actions are advised.",
+      "prediction": 0.3809,
+      "risk_level": "low"
+    },
+    "Typhoid": {
+      "top_features": [
+        [
+          "add_cases_roll8_std",
+          0.9915
+        ],
+        [
+          "rainfall_mm_roll8_mean",
+          0.9859
+        ],
+        [
+          "cholera_cases_lag4",
+          0.9522
+        ],
+        [
+          "rainfall_mm_lag4",
+          0.9182
+        ],
+        [
+          "typhoid_cases_lag8",
+          0.9174
+        ],
+        [
+          "rainfall_anomaly_pct_lag8",
+          0.8592
+        ],
+        [
+          "add_cases_lag4",
+          0.8403
+        ],
+        [
+          "rainfall_mm_lag1",
+          0.8381
+        ]
+      ],
+      "explanation_text": "Nagpur district shows a LOW outbreak probability of 35% for Typhoid within 28 days. The primary driver is add cases roll8 std (SHAP contribution: +0.99), followed by rainfall mm roll8 mean (+0.99). Other contributing factors: cholera cases lag4 (+0.95), rainfall mm lag4 (+0.92). Heightened surveillance and preventive WASH actions are advised.",
+      "prediction": 0.3498,
+      "risk_level": "low"
+    },
+    "ADD": {
+      "top_features": [
+        [
+          "add_cases_roll8_mean",
+          0.9689
+        ],
+        [
+          "rainfall_mm_roll8_std",
+          0.9422
+        ],
+        [
+          "add_cases_roll4_std",
+          0.9146
+        ],
+        [
+          "rainfall_anomaly_pct_lag4",
+          0.889
+        ],
+        [
+          "cholera_cases_lag4",
+          0.8789
+        ],
+        [
+          "rainfall_anomaly_pct_roll8_mean",
+          0.8322
+        ],
+        [
+          "cholera_cases_roll4_std",
+          0.83
+        ],
+        [
+          "typhoid_cases_roll4_mean",
+          0.8102
+        ]
+      ],
+      "explanation_text": "Nagpur district shows a LOW outbreak probability of 30% for ADD within 28 days. The primary driver is add cases roll8 mean (SHAP contribution: +0.97), followed by rainfall mm roll8 std (+0.94). Other contributing factors: add cases roll4 std (+0.91), rainfall anomaly pct lag4 (+0.89). Heightened surveillance and preventive WASH actions are advised.",
+      "prediction": 0.2954,
+      "risk_level": "low"
+    }
+  },
+  "Bhandara": {
+    "Cholera": {
+      "top_features": [
+        [
+          "season_sin",
+          0.972
+        ],
+        [
+          "typhoid_cases_roll4_std",
+          0.9715
+        ],
+        [
+          "typhoid_cases_roll4_mean",
+          0.9542
+        ],
+        [
+          "cholera_cases_roll4_mean",
+          0.9465
+        ],
+        [
+          "typhoid_cases_lag8",
+          0.93
+        ],
+        [
+          "rainfall_mm_roll8_mean",
+          0.9191
+        ],
+        [
+          "rainfall_anomaly_pct_roll8_std",
+          0.8945
+        ],
+        [
+          "add_cases_roll4_std",
+          0.8727
+        ]
+      ],
+      "explanation_text": "Bhandara district shows a MEDIUM outbreak probability of 40% for Cholera within 28 days. The primary driver is season sin (SHAP contribution: +0.97), followed by typhoid cases roll4 std (+0.97). Other contributing factors: typhoid cases roll4 mean (+0.95), cholera cases roll4 mean (+0.95). Heightened surveillance and preventive WASH actions are advised.",
+      "prediction": 0.4038,
+      "risk_level": "medium"
+    },
+    "Typhoid": {
+      "top_features": [
+        [
+          "rainfall_anomaly_pct_roll4_mean",
+          0.9886
+        ],
+        [
+          "cholera_cases_roll8_mean",
+          0.9868
+        ],
+        [
+          "season_sin",
+          0.9727
+        ],
+        [
+          "typhoid_cases_roll4_std",
+          0.956
+        ],
+        [
+          "rainfall_anomaly_pct_lag4",
+          0.9527
+        ],
+        [
+          "rainfall_anomaly_pct_lag2",
+          0.9502
+        ],
+        [
+          "typhoid_risk_score",
+          0.9322
+        ],
+        [
+          "add_outbreak_label",
+          0.924
+        ]
+      ],
+      "explanation_text": "Bhandara district shows a LOW outbreak probability of 34% for Typhoid within 28 days. The primary driver is rainfall anomaly pct roll4 mean (SHAP contribution: +0.99), followed by cholera cases roll8 mean (+0.99). Other contributing factors: season sin (+0.97), typhoid cases roll4 std (+0.96). Heightened surveillance and preventive WASH actions are advised.",
+      "prediction": 0.3438,
+      "risk_level": "low"
+    },
+    "ADD": {
+      "top_features": [
+        [
+          "wash_index",
+          0.993
+        ],
+        [
+          "rainfall_anomaly_pct_roll4_mean",
+          0.9852
+        ],
+        [
+          "rainfall_mm_roll8_mean",
+          0.9781
+        ],
+        [
+          "rainfall_anomaly_pct_roll8_mean",
+          0.954
+        ],
+        [
+          "add_risk_score",
+          0.9386
+        ],
+        [
+          "rainfall_mm_lag8",
+          0.9334
+        ],
+        [
+          "rainfall_anomaly_pct_lag8",
+          0.9014
+        ],
+        [
+          "cholera_cases_lag2",
+          0.8665
+        ]
+      ],
+      "explanation_text": "Bhandara district shows a LOW outbreak probability of 30% for ADD within 28 days. The primary driver is wash index (SHAP contribution: +0.99), followed by rainfall anomaly pct roll4 mean (+0.99). Other contributing factors: rainfall mm roll8 mean (+0.98), rainfall anomaly pct roll8 mean (+0.95). Heightened surveillance and preventive WASH actions are advised.",
+      "prediction": 0.2951,
+      "risk_level": "low"
+    }
+  },
+  "Gondia": {
+    "Cholera": {
+      "top_features": [
+        [
+          "rainfall_mm_lag4",
+          0.9928
+        ],
+        [
+          "season_cos",
+          0.9639
+        ],
+        [
+          "month",
+          0.9575
+        ],
+        [
+          "wash_index",
+          0.9369
+        ],
+        [
+          "typhoid_cases_lag4",
+          0.9257
+        ],
+        [
+          "add_risk_score",
+          0.9091
+        ],
+        [
+          "rainfall_mm_lag2",
+          0.9019
+        ],
+        [
+          "cholera_cases_lag1",
+          0.8981
+        ]
+      ],
+      "explanation_text": "Gondia district shows a LOW outbreak probability of 39% for Cholera within 28 days. The primary driver is rainfall mm lag4 (SHAP contribution: +0.99), followed by season cos (+0.96). Other contributing factors: month (+0.96), wash index (+0.94). Heightened surveillance and preventive WASH actions are advised.",
+      "prediction": 0.3887,
+      "risk_level": "low"
+    },
+    "Typhoid": {
+      "top_features": [
+        [
+          "typhoid_risk_score",
+          0.9811
+        ],
+        [
+          "typhoid_cases_roll4_mean",
+          0.9572
+        ],
+        [
+          "rainfall_anomaly_pct_lag8",
+          0.9543
+        ],
+        [
+          "cholera_cases_lag4",
+          0.9447
+        ],
+        [
+          "rainfall_anomaly_pct_lag2",
+          0.9418
+        ],
+        [
+          "cholera_cases_lag8",
+          0.8517
+        ],
+        [
+          "rainfall_mm_lag1",
+          0.8257
+        ],
+        [
+          "wash_index",
+          0.8161
+        ]
+      ],
+      "explanation_text": "Gondia district shows a LOW outbreak probability of 35% for Typhoid within 28 days. The primary driver is typhoid risk score (SHAP contribution: +0.98), followed by typhoid cases roll4 mean (+0.96). Other contributing factors: rainfall anomaly pct lag8 (+0.95), cholera cases lag4 (+0.94). Heightened surveillance and preventive WASH actions are advised.",
+      "prediction": 0.3502,
+      "risk_level": "low"
+    },
+    "ADD": {
+      "top_features": [
+        [
+          "rainfall_mm_lag8",
+          0.987
+        ],
+        [
+          "cholera_risk_score",
+          0.9816
+        ],
+        [
+          "rainfall_anomaly_pct_roll8_std",
+          0.9692
+        ],
+        [
+          "typhoid_cases_roll8_mean",
+          0.9268
+        ],
+        [
+          "typhoid_cases_roll8_std",
+          0.9004
+        ],
+        [
+          "week_of_year",
+          0.8289
+        ],
+        [
+          "rainfall_mm_lag1",
+          0.7855
+        ],
+        [
+          "rainfall_anomaly_pct_lag4",
+          0.7783
+        ]
+      ],
+      "explanation_text": "Gondia district shows a LOW outbreak probability of 29% for ADD within 28 days. The primary driver is rainfall mm lag8 (SHAP contribution: +0.99), followed by cholera risk score (+0.98). Other contributing factors: rainfall anomaly pct roll8 std (+0.97), typhoid cases roll8 mean (+0.93). Heightened surveillance and preventive WASH actions are advised.",
+      "prediction": 0.2945,
+      "risk_level": "low"
+    }
+  },
+  "Chandrapur": {
+    "Cholera": {
+      "top_features": [
+        [
+          "typhoid_cases_roll8_std",
+          0.9981
+        ],
+        [
+          "rainfall_anomaly_pct_roll8_std",
+          0.9879
+        ],
+        [
+          "rainfall_mm_roll4_std",
+          0.943
+        ],
+        [
+          "typhoid_outbreak_label",
+          0.8891
+        ],
+        [
+          "add_cases_roll4_std",
+          0.8752
+        ],
+        [
+          "typhoid_cases_roll8_mean",
+          0.8156
+        ],
+        [
+          "typhoid_cases_lag1",
+          0.8138
+        ],
+        [
+          "typhoid_cases_lag8",
+          0.8071
+        ]
+      ],
+      "explanation_text": "Chandrapur district shows a LOW outbreak probability of 39% for Cholera within 28 days. The primary driver is typhoid cases roll8 std (SHAP contribution: +1.00), followed by rainfall anomaly pct roll8 std (+0.99). Other contributing factors: rainfall mm roll4 std (+0.94), typhoid outbreak label (+0.89). Heightened surveillance and preventive WASH actions are advised.",
+      "prediction": 0.3855,
+      "risk_level": "low"
+    },
+    "Typhoid": {
+      "top_features": [
+        [
+          "season_sin",
+          0.9845
+        ],
+        [
+          "typhoid_cases_roll4_mean",
+          0.9761
+        ],
+        [
+          "add_cases_lag1",
+          0.9491
+        ],
+        [
+          "rainfall_anomaly_pct_roll4_mean",
+          0.9407
+        ],
+        [
+          "rainfall_mm_roll4_mean",
+          0.915
+        ],
+        [
+          "wash_index",
+          0.905
+        ],
+        [
+          "rainfall_mm_roll8_std",
+          0.8869
+        ],
+        [
+          "typhoid_cases_lag4",
+          0.8789
+        ]
+      ],
+      "explanation_text": "Chandrapur district shows a LOW outbreak probability of 35% for Typhoid within 28 days. The primary driver is season sin (SHAP contribution: +0.98), followed by typhoid cases roll4 mean (+0.98). Other contributing factors: add cases lag1 (+0.95), rainfall anomaly pct roll4 mean (+0.94). Heightened surveillance and preventive WASH actions are advised.",
+      "prediction": 0.3477,
+      "risk_level": "low"
+    },
+    "ADD": {
+      "top_features": [
+        [
+          "add_cases_roll8_std",
+          0.9938
+        ],
+        [
+          "cholera_cases_roll8_mean",
+          0.9333
+        ],
+        [
+          "rainfall_mm_lag1",
+          0.9303
+        ],
+        [
+          "month",
+          0.9074
+        ],
+        [
+          "typhoid_risk_score",
+          0.9069
+        ],
+        [
+          "rainfall_mm_lag8",
+          0.9032
+        ],
+        [
+          "typhoid_cases_lag8",
+          0.8447
+        ],
+        [
+          "wash_index",
+          0.8293
+        ]
+      ],
+      "explanation_text": "Chandrapur district shows a LOW outbreak probability of 30% for ADD within 28 days. The primary driver is add cases roll8 std (SHAP contribution: +0.99), followed by cholera cases roll8 mean (+0.93). Other contributing factors: rainfall mm lag1 (+0.93), month (+0.91). Heightened surveillance and preventive WASH actions are advised.",
+      "prediction": 0.2955,
+      "risk_level": "low"
+    }
+  },
+  "Gadchiroli": {
+    "Cholera": {
+      "top_features": [
+        [
+          "add_cases_lag1",
+          0.9363
+        ],
+        [
+          "add_risk_score",
+          0.9231
+        ],
+        [
+          "typhoid_cases_roll4_std",
+          0.8655
+        ],
+        [
+          "cholera_cases_roll4_mean",
+          0.8573
+        ],
+        [
+          "rainfall_anomaly_pct_lag2",
+          0.8522
+        ],
+        [
+          "wash_index",
+          0.7975
+        ],
+        [
+          "cholera_cases_roll8_std",
+          0.7863
+        ],
+        [
+          "typhoid_cases_roll8_mean",
+          0.7609
+        ]
+      ],
+      "explanation_text": "Gadchiroli district shows a CRITICAL outbreak probability of 100% for Cholera within 14 days. The primary driver is add cases lag1 (SHAP contribution: +0.94), followed by add risk score (+0.92). Other contributing factors: typhoid cases roll4 std (+0.87), cholera cases roll4 mean (+0.86). Immediate action is recommended \u2014 see Remedies tab for WHO-standard protocol.",
+      "prediction": 0.9993,
+      "risk_level": "critical"
+    },
+    "Typhoid": {
+      "top_features": [
+        [
+          "month",
+          0.9731
+        ],
+        [
+          "typhoid_cases_lag2",
+          0.859
+        ],
+        [
+          "add_outbreak_label",
+          0.8438
+        ],
+        [
+          "typhoid_cases_lag8",
+          0.8243
+        ],
+        [
+          "rainfall_anomaly_pct_lag8",
+          0.8223
+        ],
+        [
+          "rainfall_mm_lag1",
+          0.7981
+        ],
+        [
+          "rainfall_anomaly_pct_roll4_mean",
+          0.7883
+        ],
+        [
+          "typhoid_outbreak_label",
+          0.7836
+        ]
+      ],
+      "explanation_text": "Gadchiroli district shows a LOW outbreak probability of 34% for Typhoid within 28 days. The primary driver is month (SHAP contribution: +0.97), followed by typhoid cases lag2 (+0.86). Other contributing factors: add outbreak label (+0.84), typhoid cases lag8 (+0.82). Heightened surveillance and preventive WASH actions are advised.",
+      "prediction": 0.3396,
+      "risk_level": "low"
+    },
+    "ADD": {
+      "top_features": [
+        [
+          "add_cases_roll8_mean",
+          0.9649
+        ],
+        [
+          "typhoid_cases_roll8_std",
+          0.9019
+        ],
+        [
+          "add_outbreak_label",
+          0.8881
+        ],
+        [
+          "cholera_cases_lag1",
+          0.8541
+        ],
+        [
+          "rainfall_anomaly_pct_roll8_mean",
+          0.8541
+        ],
+        [
+          "monsoon_flag",
+          0.8446
+        ],
+        [
+          "add_cases_roll8_std",
+          0.83
+        ],
+        [
+          "rainfall_anomaly_pct_roll4_std",
+          0.8109
+        ]
+      ],
+      "explanation_text": "Gadchiroli district shows a LOW outbreak probability of 31% for ADD within 28 days. The primary driver is add cases roll8 mean (SHAP contribution: +0.96), followed by typhoid cases roll8 std (+0.90). Other contributing factors: add outbreak label (+0.89), cholera cases lag1 (+0.85). Heightened surveillance and preventive WASH actions are advised.",
+      "prediction": 0.3135,
+      "risk_level": "low"
+    }
+  }
+}

@@ -1,0 +1,1776 @@
+{
+  "type": "FeatureCollection",
+  "name": "Maharashtra_Districts_MahaWatch",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "district": "Mumbai City",
+        "DISTRICT": "Mumbai City",
+        "state": "Maharashtra",
+        "latitude": 18.94,
+        "longitude": 72.835,
+        "area_km2": 67,
+        "population": 3100000,
+        "sanitation_pct": 98.2,
+        "water_access_pct": 99.1,
+        "od_index": 0.02,
+        "wash_index": 0.9852,
+        "wash_risk": "Low",
+        "cholera_5yr_total": 359,
+        "add_5yr_total": 10358,
+        "typhoid_5yr_total": 785,
+        "data_source": "NFHS-5 (2019-21) + IDSP (2019-23)",
+        "note": "Replace geometry with real boundaries from github.com/datta07/INDIAN-SHAPEFILES"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              72.79444194572496,
+              18.905525653866214
+            ],
+            [
+              72.87555805427503,
+              18.905525653866214
+            ],
+            [
+              72.87555805427503,
+              18.97447434613379
+            ],
+            [
+              72.79444194572496,
+              18.97447434613379
+            ],
+            [
+              72.79444194572496,
+              18.905525653866214
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "district": "Mumbai Suburban",
+        "DISTRICT": "Mumbai Suburban",
+        "state": "Maharashtra",
+        "latitude": 19.12,
+        "longitude": 72.87,
+        "area_km2": 446,
+        "population": 9400000,
+        "sanitation_pct": 95.8,
+        "water_access_pct": 97.8,
+        "od_index": 0.04,
+        "wash_index": 0.9664,
+        "wash_risk": "Low",
+        "cholera_5yr_total": 1033,
+        "add_5yr_total": 33885,
+        "typhoid_5yr_total": 2657,
+        "data_source": "NFHS-5 (2019-21) + IDSP (2019-23)",
+        "note": "Replace geometry with real boundaries from github.com/datta07/INDIAN-SHAPEFILES"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              72.76535773292731,
+              19.031054072988216
+            ],
+            [
+              72.9746422670727,
+              19.031054072988216
+            ],
+            [
+              72.9746422670727,
+              19.208945927011786
+            ],
+            [
+              72.76535773292731,
+              19.208945927011786
+            ],
+            [
+              72.76535773292731,
+              19.031054072988216
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "district": "Thane",
+        "DISTRICT": "Thane",
+        "state": "Maharashtra",
+        "latitude": 19.218,
+        "longitude": 73.058,
+        "area_km2": 9558,
+        "population": 11100000,
+        "sanitation_pct": 89.3,
+        "water_access_pct": 93.4,
+        "od_index": 0.11,
+        "wash_index": 0.9088,
+        "wash_risk": "Low",
+        "cholera_5yr_total": 1540,
+        "add_5yr_total": 47101,
+        "typhoid_5yr_total": 3815,
+        "data_source": "NFHS-5 (2019-21) + IDSP (2019-23)",
+        "note": "Replace geometry with real boundaries from github.com/datta07/INDIAN-SHAPEFILES"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              72.57357870782486,
+              18.806241901651127
+            ],
+            [
+              73.54242129217515,
+              18.806241901651127
+            ],
+            [
+              73.54242129217515,
+              19.629758098348873
+            ],
+            [
+              72.57357870782486,
+              19.629758098348873
+            ],
+            [
+              72.57357870782486,
+              18.806241901651127
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "district": "Palghar",
+        "DISTRICT": "Palghar",
+        "state": "Maharashtra",
+        "latitude": 19.697,
+        "longitude": 72.765,
+        "area_km2": 5344,
+        "population": 2990000,
+        "sanitation_pct": 60.4,
+        "water_access_pct": 74.2,
+        "od_index": 0.39,
+        "wash_index": 0.6604,
+        "wash_risk": "Medium",
+        "cholera_5yr_total": 686,
+        "add_5yr_total": 20942,
+        "typhoid_5yr_total": 2882,
+        "data_source": "NFHS-5 (2019-21) + IDSP (2019-23)",
+        "note": "Replace geometry with real boundaries from github.com/datta07/INDIAN-SHAPEFILES"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              72.40277957530186,
+              19.38911263900658
+            ],
+            [
+              73.12722042469814,
+              19.38911263900658
+            ],
+            [
+              73.12722042469814,
+              20.00488736099342
+            ],
+            [
+              72.40277957530186,
+              20.00488736099342
+            ],
+            [
+              72.40277957530186,
+              19.38911263900658
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "district": "Raigad",
+        "DISTRICT": "Raigad",
+        "state": "Maharashtra",
+        "latitude": 18.519,
+        "longitude": 73.184,
+        "area_km2": 7152,
+        "population": 2640000,
+        "sanitation_pct": 72.1,
+        "water_access_pct": 80.3,
+        "od_index": 0.28,
+        "wash_index": 0.7536,
+        "wash_risk": "Low",
+        "cholera_5yr_total": 519,
+        "add_5yr_total": 15500,
+        "typhoid_5yr_total": 1246,
+        "data_source": "NFHS-5 (2019-21) + IDSP (2019-23)",
+        "note": "Replace geometry with real boundaries from github.com/datta07/INDIAN-SHAPEFILES"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              72.76496194661166,
+              18.162817654619914
+            ],
+            [
+              73.60303805338833,
+              18.162817654619914
+            ],
+            [
+              73.60303805338833,
+              18.875182345380082
+            ],
+            [
+              72.76496194661166,
+              18.875182345380082
+            ],
+            [
+              72.76496194661166,
+              18.162817654619914
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "district": "Ratnagiri",
+        "DISTRICT": "Ratnagiri",
+        "state": "Maharashtra",
+        "latitude": 17.0,
+        "longitude": 73.317,
+        "area_km2": 8208,
+        "population": 1620000,
+        "sanitation_pct": 75.6,
+        "water_access_pct": 82.1,
+        "od_index": 0.24,
+        "wash_index": 0.7828,
+        "wash_risk": "Low",
+        "cholera_5yr_total": 327,
+        "add_5yr_total": 8809,
+        "typhoid_5yr_total": 736,
+        "data_source": "NFHS-5 (2019-21) + IDSP (2019-23)",
+        "note": "Replace geometry with real boundaries from github.com/datta07/INDIAN-SHAPEFILES"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              72.86809092547038,
+              16.61842728664983
+            ],
+            [
+              73.7659090745296,
+              16.61842728664983
+            ],
+            [
+              73.7659090745296,
+              17.38157271335017
+            ],
+            [
+              72.86809092547038,
+              17.38157271335017
+            ],
+            [
+              72.86809092547038,
+              16.61842728664983
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "district": "Sindhudurg",
+        "DISTRICT": "Sindhudurg",
+        "state": "Maharashtra",
+        "latitude": 16.35,
+        "longitude": 73.967,
+        "area_km2": 5207,
+        "population": 870000,
+        "sanitation_pct": 80.2,
+        "water_access_pct": 87.4,
+        "od_index": 0.2,
+        "wash_index": 0.8304,
+        "wash_risk": "Low",
+        "cholera_5yr_total": 142,
+        "add_5yr_total": 4339,
+        "typhoid_5yr_total": 340,
+        "data_source": "NFHS-5 (2019-21) + IDSP (2019-23)",
+        "note": "Replace geometry with real boundaries from github.com/datta07/INDIAN-SHAPEFILES"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              73.60945270270979,
+              16.04608479730333
+            ],
+            [
+              74.32454729729021,
+              16.04608479730333
+            ],
+            [
+              74.32454729729021,
+              16.653915202696673
+            ],
+            [
+              73.60945270270979,
+              16.653915202696673
+            ],
+            [
+              73.60945270270979,
+              16.04608479730333
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "district": "Nashik",
+        "DISTRICT": "Nashik",
+        "state": "Maharashtra",
+        "latitude": 20.011,
+        "longitude": 73.79,
+        "area_km2": 15530,
+        "population": 6110000,
+        "sanitation_pct": 69.3,
+        "water_access_pct": 76.8,
+        "od_index": 0.31,
+        "wash_index": 0.7224,
+        "wash_risk": "Medium",
+        "cholera_5yr_total": 428,
+        "add_5yr_total": 37690,
+        "typhoid_5yr_total": 3980,
+        "data_source": "NFHS-5 (2019-21) + IDSP (2019-23)",
+        "note": "Replace geometry with real boundaries from github.com/datta07/INDIAN-SHAPEFILES"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              73.17251638422913,
+              19.486138926594755
+            ],
+            [
+              74.40748361577089,
+              19.486138926594755
+            ],
+            [
+              74.40748361577089,
+              20.535861073405243
+            ],
+            [
+              73.17251638422913,
+              20.535861073405243
+            ],
+            [
+              73.17251638422913,
+              19.486138926594755
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "district": "Dhule",
+        "DISTRICT": "Dhule",
+        "state": "Maharashtra",
+        "latitude": 20.899,
+        "longitude": 74.777,
+        "area_km2": 7195,
+        "population": 2050000,
+        "sanitation_pct": 62.4,
+        "water_access_pct": 70.1,
+        "od_index": 0.38,
+        "wash_index": 0.654,
+        "wash_risk": "Medium",
+        "cholera_5yr_total": 81,
+        "add_5yr_total": 13804,
+        "typhoid_5yr_total": 1488,
+        "data_source": "NFHS-5 (2019-21) + IDSP (2019-23)",
+        "note": "Replace geometry with real boundaries from github.com/datta07/INDIAN-SHAPEFILES"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              74.3567041422194,
+              20.541748520886493
+            ],
+            [
+              75.1972958577806,
+              20.541748520886493
+            ],
+            [
+              75.1972958577806,
+              21.25625147911351
+            ],
+            [
+              74.3567041422194,
+              21.25625147911351
+            ],
+            [
+              74.3567041422194,
+              20.541748520886493
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "district": "Nandurbar",
+        "DISTRICT": "Nandurbar",
+        "state": "Maharashtra",
+        "latitude": 21.371,
+        "longitude": 74.248,
+        "area_km2": 5955,
+        "population": 1650000,
+        "sanitation_pct": 48.7,
+        "water_access_pct": 61.3,
+        "od_index": 0.52,
+        "wash_index": 0.536,
+        "wash_risk": "High",
+        "cholera_5yr_total": 78,
+        "add_5yr_total": 13140,
+        "typhoid_5yr_total": 1735,
+        "data_source": "NFHS-5 (2019-21) + IDSP (2019-23)",
+        "note": "Replace geometry with real boundaries from github.com/datta07/INDIAN-SHAPEFILES"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              73.86563283274248,
+              21.045987907831105
+            ],
+            [
+              74.63036716725753,
+              21.045987907831105
+            ],
+            [
+              74.63036716725753,
+              21.696012092168893
+            ],
+            [
+              73.86563283274248,
+              21.696012092168893
+            ],
+            [
+              73.86563283274248,
+              21.045987907831105
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "district": "Jalgaon",
+        "DISTRICT": "Jalgaon",
+        "state": "Maharashtra",
+        "latitude": 21.004,
+        "longitude": 75.562,
+        "area_km2": 11765,
+        "population": 4230000,
+        "sanitation_pct": 66.8,
+        "water_access_pct": 73.9,
+        "od_index": 0.33,
+        "wash_index": 0.6968,
+        "wash_risk": "Medium",
+        "cholera_5yr_total": 166,
+        "add_5yr_total": 27129,
+        "typhoid_5yr_total": 2803,
+        "data_source": "NFHS-5 (2019-21) + IDSP (2019-23)",
+        "note": "Replace geometry with real boundaries from github.com/datta07/INDIAN-SHAPEFILES"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              75.02455295861334,
+              20.547170014821344
+            ],
+            [
+              76.09944704138665,
+              20.547170014821344
+            ],
+            [
+              76.09944704138665,
+              21.46082998517866
+            ],
+            [
+              75.02455295861334,
+              21.46082998517866
+            ],
+            [
+              75.02455295861334,
+              20.547170014821344
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "district": "Ahmednagar",
+        "DISTRICT": "Ahmednagar",
+        "state": "Maharashtra",
+        "latitude": 19.095,
+        "longitude": 74.738,
+        "area_km2": 17048,
+        "population": 4540000,
+        "sanitation_pct": 67.2,
+        "water_access_pct": 74.6,
+        "od_index": 0.33,
+        "wash_index": 0.7012,
+        "wash_risk": "Medium",
+        "cholera_5yr_total": 181,
+        "add_5yr_total": 28455,
+        "typhoid_5yr_total": 3002,
+        "data_source": "NFHS-5 (2019-21) + IDSP (2019-23)",
+        "note": "Replace geometry with real boundaries from github.com/datta07/INDIAN-SHAPEFILES"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              74.09104149123083,
+              18.545085267546206
+            ],
+            [
+              75.38495850876917,
+              18.545085267546206
+            ],
+            [
+              75.38495850876917,
+              19.644914732453792
+            ],
+            [
+              74.09104149123083,
+              19.644914732453792
+            ],
+            [
+              74.09104149123083,
+              18.545085267546206
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "district": "Pune",
+        "DISTRICT": "Pune",
+        "state": "Maharashtra",
+        "latitude": 18.52,
+        "longitude": 73.857,
+        "area_km2": 15643,
+        "population": 9429000,
+        "sanitation_pct": 85.4,
+        "water_access_pct": 91.2,
+        "od_index": 0.15,
+        "wash_index": 0.8764,
+        "wash_risk": "Low",
+        "cholera_5yr_total": 286,
+        "add_5yr_total": 43088,
+        "typhoid_5yr_total": 4619,
+        "data_source": "NFHS-5 (2019-21) + IDSP (2019-23)",
+        "note": "Replace geometry with real boundaries from github.com/datta07/INDIAN-SHAPEFILES"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              73.23727397656069,
+              17.99323288007658
+            ],
+            [
+              74.47672602343931,
+              17.99323288007658
+            ],
+            [
+              74.47672602343931,
+              19.04676711992342
+            ],
+            [
+              73.23727397656069,
+              19.04676711992342
+            ],
+            [
+              73.23727397656069,
+              17.99323288007658
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "district": "Satara",
+        "DISTRICT": "Satara",
+        "state": "Maharashtra",
+        "latitude": 17.687,
+        "longitude": 74.033,
+        "area_km2": 10484,
+        "population": 3003000,
+        "sanitation_pct": 77.3,
+        "water_access_pct": 84.1,
+        "od_index": 0.23,
+        "wash_index": 0.7996,
+        "wash_risk": "Low",
+        "cholera_5yr_total": 98,
+        "add_5yr_total": 16207,
+        "typhoid_5yr_total": 1711,
+        "data_source": "NFHS-5 (2019-21) + IDSP (2019-23)",
+        "note": "Replace geometry with real boundaries from github.com/datta07/INDIAN-SHAPEFILES"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              73.5256551960437,
+              17.25575691663715
+            ],
+            [
+              74.5403448039563,
+              17.25575691663715
+            ],
+            [
+              74.5403448039563,
+              18.118243083362852
+            ],
+            [
+              73.5256551960437,
+              18.118243083362852
+            ],
+            [
+              73.5256551960437,
+              17.25575691663715
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "district": "Sangli",
+        "DISTRICT": "Sangli",
+        "state": "Maharashtra",
+        "latitude": 16.855,
+        "longitude": 74.567,
+        "area_km2": 8572,
+        "population": 2820000,
+        "sanitation_pct": 76.9,
+        "water_access_pct": 83.8,
+        "od_index": 0.23,
+        "wash_index": 0.7968,
+        "wash_risk": "Low",
+        "cholera_5yr_total": 92,
+        "add_5yr_total": 15024,
+        "typhoid_5yr_total": 1638,
+        "data_source": "NFHS-5 (2019-21) + IDSP (2019-23)",
+        "note": "Replace geometry with real boundaries from github.com/datta07/INDIAN-SHAPEFILES"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              74.10824501985537,
+              16.46505826687708
+            ],
+            [
+              75.02575498014461,
+              16.46505826687708
+            ],
+            [
+              75.02575498014461,
+              17.24494173312292
+            ],
+            [
+              74.10824501985537,
+              17.24494173312292
+            ],
+            [
+              74.10824501985537,
+              16.46505826687708
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "district": "Solapur",
+        "DISTRICT": "Solapur",
+        "state": "Maharashtra",
+        "latitude": 17.687,
+        "longitude": 75.927,
+        "area_km2": 14895,
+        "population": 4320000,
+        "sanitation_pct": 72.8,
+        "water_access_pct": 79.6,
+        "od_index": 0.27,
+        "wash_index": 0.7556,
+        "wash_risk": "Low",
+        "cholera_5yr_total": 139,
+        "add_5yr_total": 24961,
+        "typhoid_5yr_total": 2654,
+        "data_source": "NFHS-5 (2019-21) + IDSP (2019-23)",
+        "note": "Replace geometry with real boundaries from github.com/datta07/INDIAN-SHAPEFILES"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              75.32227215763544,
+              17.172981333990123
+            ],
+            [
+              76.53172784236457,
+              17.172981333990123
+            ],
+            [
+              76.53172784236457,
+              18.20101866600988
+            ],
+            [
+              75.32227215763544,
+              18.20101866600988
+            ],
+            [
+              75.32227215763544,
+              17.172981333990123
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "district": "Kolhapur",
+        "DISTRICT": "Kolhapur",
+        "state": "Maharashtra",
+        "latitude": 16.7,
+        "longitude": 74.233,
+        "area_km2": 7685,
+        "population": 3880000,
+        "sanitation_pct": 83.1,
+        "water_access_pct": 89.4,
+        "od_index": 0.17,
+        "wash_index": 0.856,
+        "wash_risk": "Low",
+        "cholera_5yr_total": 132,
+        "add_5yr_total": 18334,
+        "typhoid_5yr_total": 1935,
+        "data_source": "NFHS-5 (2019-21) + IDSP (2019-23)",
+        "note": "Replace geometry with real boundaries from github.com/datta07/INDIAN-SHAPEFILES"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              73.79862817588581,
+              16.33078394950294
+            ],
+            [
+              74.6673718241142,
+              16.33078394950294
+            ],
+            [
+              74.6673718241142,
+              17.069216050497058
+            ],
+            [
+              73.79862817588581,
+              17.069216050497058
+            ],
+            [
+              73.79862817588581,
+              16.33078394950294
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "district": "Aurangabad",
+        "DISTRICT": "Aurangabad",
+        "state": "Maharashtra",
+        "latitude": 19.877,
+        "longitude": 75.329,
+        "area_km2": 10100,
+        "population": 3701000,
+        "sanitation_pct": 65.4,
+        "water_access_pct": 72.3,
+        "od_index": 0.35,
+        "wash_index": 0.6808,
+        "wash_risk": "Medium",
+        "cholera_5yr_total": 286,
+        "add_5yr_total": 23977,
+        "typhoid_5yr_total": 2551,
+        "data_source": "NFHS-5 (2019-21) + IDSP (2019-23)",
+        "note": "Replace geometry with real boundaries from github.com/datta07/INDIAN-SHAPEFILES"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              74.83103318994445,
+              19.45372821145279
+            ],
+            [
+              75.82696681005554,
+              19.45372821145279
+            ],
+            [
+              75.82696681005554,
+              20.300271788547207
+            ],
+            [
+              74.83103318994445,
+              20.300271788547207
+            ],
+            [
+              74.83103318994445,
+              19.45372821145279
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "district": "Jalna",
+        "DISTRICT": "Jalna",
+        "state": "Maharashtra",
+        "latitude": 19.834,
+        "longitude": 75.883,
+        "area_km2": 7718,
+        "population": 1960000,
+        "sanitation_pct": 58.3,
+        "water_access_pct": 66.1,
+        "od_index": 0.42,
+        "wash_index": 0.6136,
+        "wash_risk": "Medium",
+        "cholera_5yr_total": 177,
+        "add_5yr_total": 13990,
+        "typhoid_5yr_total": 1522,
+        "data_source": "NFHS-5 (2019-21) + IDSP (2019-23)",
+        "note": "Replace geometry with real boundaries from github.com/datta07/INDIAN-SHAPEFILES"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              75.44769656137554,
+              19.463992077169216
+            ],
+            [
+              76.31830343862445,
+              19.463992077169216
+            ],
+            [
+              76.31830343862445,
+              20.204007922830783
+            ],
+            [
+              75.44769656137554,
+              20.204007922830783
+            ],
+            [
+              75.44769656137554,
+              19.463992077169216
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "district": "Beed",
+        "DISTRICT": "Beed",
+        "state": "Maharashtra",
+        "latitude": 18.99,
+        "longitude": 75.756,
+        "area_km2": 10693,
+        "population": 2585000,
+        "sanitation_pct": 60.1,
+        "water_access_pct": 68.4,
+        "od_index": 0.4,
+        "wash_index": 0.634,
+        "wash_risk": "Medium",
+        "cholera_5yr_total": 119,
+        "add_5yr_total": 18442,
+        "typhoid_5yr_total": 1851,
+        "data_source": "NFHS-5 (2019-21) + IDSP (2019-23)",
+        "note": "Replace geometry with real boundaries from github.com/datta07/INDIAN-SHAPEFILES"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              75.24362315623164,
+              18.554479682796888
+            ],
+            [
+              76.26837684376837,
+              18.554479682796888
+            ],
+            [
+              76.26837684376837,
+              19.42552031720311
+            ],
+            [
+              75.24362315623164,
+              19.42552031720311
+            ],
+            [
+              75.24362315623164,
+              18.554479682796888
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "district": "Osmanabad",
+        "DISTRICT": "Osmanabad",
+        "state": "Maharashtra",
+        "latitude": 18.178,
+        "longitude": 76.042,
+        "area_km2": 7569,
+        "population": 1657000,
+        "sanitation_pct": 63.7,
+        "water_access_pct": 71.2,
+        "od_index": 0.36,
+        "wash_index": 0.6676,
+        "wash_risk": "Medium",
+        "cholera_5yr_total": 89,
+        "add_5yr_total": 11172,
+        "typhoid_5yr_total": 1174,
+        "data_source": "NFHS-5 (2019-21) + IDSP (2019-23)",
+        "note": "Replace geometry with real boundaries from github.com/datta07/INDIAN-SHAPEFILES"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              75.61091891891893,
+              17.811581081081084
+            ],
+            [
+              76.47308108108108,
+              17.811581081081084
+            ],
+            [
+              76.47308108108108,
+              18.544418918918918
+            ],
+            [
+              75.61091891891893,
+              18.544418918918918
+            ],
+            [
+              75.61091891891893,
+              17.811581081081084
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "district": "Latur",
+        "DISTRICT": "Latur",
+        "state": "Maharashtra",
+        "latitude": 18.407,
+        "longitude": 76.56,
+        "area_km2": 7157,
+        "population": 2454000,
+        "sanitation_pct": 67.9,
+        "water_access_pct": 75.3,
+        "od_index": 0.32,
+        "wash_index": 0.7088,
+        "wash_risk": "Medium",
+        "cholera_5yr_total": 102,
+        "add_5yr_total": 15306,
+        "typhoid_5yr_total": 1621,
+        "data_source": "NFHS-5 (2019-21) + IDSP (2019-23)",
+        "note": "Replace geometry with real boundaries from github.com/datta07/INDIAN-SHAPEFILES"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              76.1408154963736,
+              18.05069317191756
+            ],
+            [
+              76.9791845036264,
+              18.05069317191756
+            ],
+            [
+              76.9791845036264,
+              18.76330682808244
+            ],
+            [
+              76.1408154963736,
+              18.76330682808244
+            ],
+            [
+              76.1408154963736,
+              18.05069317191756
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "district": "Nanded",
+        "DISTRICT": "Nanded",
+        "state": "Maharashtra",
+        "latitude": 19.153,
+        "longitude": 77.308,
+        "area_km2": 10502,
+        "population": 3361000,
+        "sanitation_pct": 61.8,
+        "water_access_pct": 69.7,
+        "od_index": 0.38,
+        "wash_index": 0.65,
+        "wash_risk": "Medium",
+        "cholera_5yr_total": 295,
+        "add_5yr_total": 22768,
+        "typhoid_5yr_total": 2544,
+        "data_source": "NFHS-5 (2019-21) + IDSP (2019-23)",
+        "note": "Replace geometry with real boundaries from github.com/datta07/INDIAN-SHAPEFILES"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              76.8002198521837,
+              18.721386874356135
+            ],
+            [
+              77.81578014781631,
+              18.721386874356135
+            ],
+            [
+              77.81578014781631,
+              19.584613125643862
+            ],
+            [
+              76.8002198521837,
+              19.584613125643862
+            ],
+            [
+              76.8002198521837,
+              18.721386874356135
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "district": "Parbhani",
+        "DISTRICT": "Parbhani",
+        "state": "Maharashtra",
+        "latitude": 19.271,
+        "longitude": 76.774,
+        "area_km2": 6511,
+        "population": 1836000,
+        "sanitation_pct": 59.4,
+        "water_access_pct": 67.2,
+        "od_index": 0.41,
+        "wash_index": 0.6244,
+        "wash_risk": "Medium",
+        "cholera_5yr_total": 170,
+        "add_5yr_total": 12867,
+        "typhoid_5yr_total": 1321,
+        "data_source": "NFHS-5 (2019-21) + IDSP (2019-23)",
+        "note": "Replace geometry with real boundaries from github.com/datta07/INDIAN-SHAPEFILES"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              76.37418088052061,
+              18.93115374844252
+            ],
+            [
+              77.17381911947939,
+              18.93115374844252
+            ],
+            [
+              77.17381911947939,
+              19.610846251557483
+            ],
+            [
+              76.37418088052061,
+              19.610846251557483
+            ],
+            [
+              76.37418088052061,
+              18.93115374844252
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "district": "Hingoli",
+        "DISTRICT": "Hingoli",
+        "state": "Maharashtra",
+        "latitude": 19.717,
+        "longitude": 77.149,
+        "area_km2": 4824,
+        "population": 1177000,
+        "sanitation_pct": 55.6,
+        "water_access_pct": 63.8,
+        "od_index": 0.44,
+        "wash_index": 0.5896,
+        "wash_risk": "High",
+        "cholera_5yr_total": 40,
+        "add_5yr_total": 8776,
+        "typhoid_5yr_total": 910,
+        "data_source": "NFHS-5 (2019-21) + IDSP (2019-23)",
+        "note": "Replace geometry with real boundaries from github.com/datta07/INDIAN-SHAPEFILES"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              76.80485349748461,
+              19.42447547286192
+            ],
+            [
+              77.49314650251539,
+              19.42447547286192
+            ],
+            [
+              77.49314650251539,
+              20.009524527138076
+            ],
+            [
+              76.80485349748461,
+              20.009524527138076
+            ],
+            [
+              76.80485349748461,
+              19.42447547286192
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "district": "Buldhana",
+        "DISTRICT": "Buldhana",
+        "state": "Maharashtra",
+        "latitude": 20.529,
+        "longitude": 76.184,
+        "area_km2": 11126,
+        "population": 2586000,
+        "sanitation_pct": 63.2,
+        "water_access_pct": 71.0,
+        "od_index": 0.37,
+        "wash_index": 0.6628,
+        "wash_risk": "Medium",
+        "cholera_5yr_total": 113,
+        "add_5yr_total": 17278,
+        "typhoid_5yr_total": 1785,
+        "data_source": "NFHS-5 (2019-21) + IDSP (2019-23)",
+        "note": "Replace geometry with real boundaries from github.com/datta07/INDIAN-SHAPEFILES"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              75.66135206537645,
+              20.084749255569978
+            ],
+            [
+              76.70664793462355,
+              20.084749255569978
+            ],
+            [
+              76.70664793462355,
+              20.973250744430022
+            ],
+            [
+              75.66135206537645,
+              20.973250744430022
+            ],
+            [
+              75.66135206537645,
+              20.084749255569978
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "district": "Akola",
+        "DISTRICT": "Akola",
+        "state": "Maharashtra",
+        "latitude": 20.709,
+        "longitude": 77.007,
+        "area_km2": 5428,
+        "population": 1814000,
+        "sanitation_pct": 71.4,
+        "water_access_pct": 78.1,
+        "od_index": 0.29,
+        "wash_index": 0.74,
+        "wash_risk": "Medium",
+        "cholera_5yr_total": 57,
+        "add_5yr_total": 10632,
+        "typhoid_5yr_total": 1149,
+        "data_source": "NFHS-5 (2019-21) + IDSP (2019-23)",
+        "note": "Replace geometry with real boundaries from github.com/datta07/INDIAN-SHAPEFILES"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              76.64194388284625,
+              20.39870230041931
+            ],
+            [
+              77.37205611715376,
+              20.39870230041931
+            ],
+            [
+              77.37205611715376,
+              21.01929769958069
+            ],
+            [
+              76.64194388284625,
+              21.01929769958069
+            ],
+            [
+              76.64194388284625,
+              20.39870230041931
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "district": "Washim",
+        "DISTRICT": "Washim",
+        "state": "Maharashtra",
+        "latitude": 20.113,
+        "longitude": 77.133,
+        "area_km2": 5154,
+        "population": 1197000,
+        "sanitation_pct": 60.8,
+        "water_access_pct": 68.9,
+        "od_index": 0.39,
+        "wash_index": 0.6408,
+        "wash_risk": "Medium",
+        "cholera_5yr_total": 43,
+        "add_5yr_total": 8298,
+        "typhoid_5yr_total": 876,
+        "data_source": "NFHS-5 (2019-21) + IDSP (2019-23)",
+        "note": "Replace geometry with real boundaries from github.com/datta07/INDIAN-SHAPEFILES"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              76.77727702332653,
+              19.810635469827552
+            ],
+            [
+              77.48872297667346,
+              19.810635469827552
+            ],
+            [
+              77.48872297667346,
+              20.415364530172447
+            ],
+            [
+              76.77727702332653,
+              20.415364530172447
+            ],
+            [
+              76.77727702332653,
+              19.810635469827552
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "district": "Amravati",
+        "DISTRICT": "Amravati",
+        "state": "Maharashtra",
+        "latitude": 20.932,
+        "longitude": 77.75,
+        "area_km2": 12210,
+        "population": 2888000,
+        "sanitation_pct": 72.6,
+        "water_access_pct": 79.3,
+        "od_index": 0.27,
+        "wash_index": 0.7536,
+        "wash_risk": "Low",
+        "cholera_5yr_total": 111,
+        "add_5yr_total": 16784,
+        "typhoid_5yr_total": 1732,
+        "data_source": "NFHS-5 (2019-21) + IDSP (2019-23)",
+        "note": "Replace geometry with real boundaries from github.com/datta07/INDIAN-SHAPEFILES"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              77.20248308265883,
+              20.466610620260006
+            ],
+            [
+              78.29751691734117,
+              20.466610620260006
+            ],
+            [
+              78.29751691734117,
+              21.39738937973999
+            ],
+            [
+              77.20248308265883,
+              21.39738937973999
+            ],
+            [
+              77.20248308265883,
+              20.466610620260006
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "district": "Yavatmal",
+        "DISTRICT": "Yavatmal",
+        "state": "Maharashtra",
+        "latitude": 20.389,
+        "longitude": 78.133,
+        "area_km2": 13582,
+        "population": 2776000,
+        "sanitation_pct": 61.1,
+        "water_access_pct": 69.2,
+        "od_index": 0.39,
+        "wash_index": 0.6432,
+        "wash_risk": "Medium",
+        "cholera_5yr_total": 124,
+        "add_5yr_total": 18978,
+        "typhoid_5yr_total": 2054,
+        "data_source": "NFHS-5 (2019-21) + IDSP (2019-23)",
+        "note": "Replace geometry with real boundaries from github.com/datta07/INDIAN-SHAPEFILES"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              77.55554044243627,
+              19.898159376070826
+            ],
+            [
+              78.71045955756372,
+              19.898159376070826
+            ],
+            [
+              78.71045955756372,
+              20.879840623929173
+            ],
+            [
+              77.55554044243627,
+              20.879840623929173
+            ],
+            [
+              77.55554044243627,
+              19.898159376070826
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "district": "Wardha",
+        "DISTRICT": "Wardha",
+        "state": "Maharashtra",
+        "latitude": 20.745,
+        "longitude": 78.599,
+        "area_km2": 6310,
+        "population": 1300000,
+        "sanitation_pct": 73.9,
+        "water_access_pct": 81.2,
+        "od_index": 0.26,
+        "wash_index": 0.7684,
+        "wash_risk": "Low",
+        "cholera_5yr_total": 49,
+        "add_5yr_total": 7429,
+        "typhoid_5yr_total": 769,
+        "data_source": "NFHS-5 (2019-21) + IDSP (2019-23)",
+        "note": "Replace geometry with real boundaries from github.com/datta07/INDIAN-SHAPEFILES"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.20540063389083,
+              20.410440538807205
+            ],
+            [
+              78.99259936610918,
+              20.410440538807205
+            ],
+            [
+              78.99259936610918,
+              21.079559461192797
+            ],
+            [
+              78.20540063389083,
+              21.079559461192797
+            ],
+            [
+              78.20540063389083,
+              20.410440538807205
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "district": "Nagpur",
+        "DISTRICT": "Nagpur",
+        "state": "Maharashtra",
+        "latitude": 21.149,
+        "longitude": 79.088,
+        "area_km2": 9892,
+        "population": 4653000,
+        "sanitation_pct": 83.7,
+        "water_access_pct": 90.1,
+        "od_index": 0.16,
+        "wash_index": 0.8632,
+        "wash_risk": "Low",
+        "cholera_5yr_total": 124,
+        "add_5yr_total": 22093,
+        "typhoid_5yr_total": 2211,
+        "data_source": "NFHS-5 (2019-21) + IDSP (2019-23)",
+        "note": "Replace geometry with real boundaries from github.com/datta07/INDIAN-SHAPEFILES"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.59518744378119,
+              20.730109327214013
+            ],
+            [
+              79.5808125562188,
+              20.730109327214013
+            ],
+            [
+              79.5808125562188,
+              21.56789067278599
+            ],
+            [
+              78.59518744378119,
+              21.56789067278599
+            ],
+            [
+              78.59518744378119,
+              20.730109327214013
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "district": "Bhandara",
+        "DISTRICT": "Bhandara",
+        "state": "Maharashtra",
+        "latitude": 21.167,
+        "longitude": 79.65,
+        "area_km2": 3717,
+        "population": 1199000,
+        "sanitation_pct": 71.2,
+        "water_access_pct": 78.8,
+        "od_index": 0.29,
+        "wash_index": 0.742,
+        "wash_risk": "Medium",
+        "cholera_5yr_total": 40,
+        "add_5yr_total": 6904,
+        "typhoid_5yr_total": 780,
+        "data_source": "NFHS-5 (2019-21) + IDSP (2019-23)",
+        "note": "Replace geometry with real boundaries from github.com/datta07/INDIAN-SHAPEFILES"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              79.3479102489704,
+              20.910223711624827
+            ],
+            [
+              79.95208975102962,
+              20.910223711624827
+            ],
+            [
+              79.95208975102962,
+              21.423776288375176
+            ],
+            [
+              79.3479102489704,
+              21.423776288375176
+            ],
+            [
+              79.3479102489704,
+              20.910223711624827
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "district": "Gondia",
+        "DISTRICT": "Gondia",
+        "state": "Maharashtra",
+        "latitude": 21.45,
+        "longitude": 80.2,
+        "area_km2": 5431,
+        "population": 1323000,
+        "sanitation_pct": 67.4,
+        "water_access_pct": 75.1,
+        "od_index": 0.33,
+        "wash_index": 0.704,
+        "wash_risk": "Medium",
+        "cholera_5yr_total": 49,
+        "add_5yr_total": 8390,
+        "typhoid_5yr_total": 901,
+        "data_source": "NFHS-5 (2019-21) + IDSP (2019-23)",
+        "note": "Replace geometry with real boundaries from github.com/datta07/INDIAN-SHAPEFILES"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              79.83484301539312,
+              21.13961656308415
+            ],
+            [
+              80.56515698460689,
+              21.13961656308415
+            ],
+            [
+              80.56515698460689,
+              21.76038343691585
+            ],
+            [
+              79.83484301539312,
+              21.76038343691585
+            ],
+            [
+              79.83484301539312,
+              21.13961656308415
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "district": "Chandrapur",
+        "DISTRICT": "Chandrapur",
+        "state": "Maharashtra",
+        "latitude": 19.952,
+        "longitude": 79.296,
+        "area_km2": 11443,
+        "population": 2194000,
+        "sanitation_pct": 68.9,
+        "water_access_pct": 76.4,
+        "od_index": 0.31,
+        "wash_index": 0.7192,
+        "wash_risk": "Medium",
+        "cholera_5yr_total": 99,
+        "add_5yr_total": 13548,
+        "typhoid_5yr_total": 1444,
+        "data_source": "NFHS-5 (2019-21) + IDSP (2019-23)",
+        "note": "Replace geometry with real boundaries from github.com/datta07/INDIAN-SHAPEFILES"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.76595876199653,
+              19.50146494769705
+            ],
+            [
+              79.82604123800348,
+              19.50146494769705
+            ],
+            [
+              79.82604123800348,
+              20.402535052302955
+            ],
+            [
+              78.76595876199653,
+              20.402535052302955
+            ],
+            [
+              78.76595876199653,
+              19.50146494769705
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "district": "Gadchiroli",
+        "DISTRICT": "Gadchiroli",
+        "state": "Maharashtra",
+        "latitude": 19.75,
+        "longitude": 80.0,
+        "area_km2": 14412,
+        "population": 970000,
+        "sanitation_pct": 48.3,
+        "water_access_pct": 59.7,
+        "od_index": 0.52,
+        "wash_index": 0.528,
+        "wash_risk": "High",
+        "cholera_5yr_total": 58,
+        "add_5yr_total": 7886,
+        "typhoid_5yr_total": 1063,
+        "data_source": "NFHS-5 (2019-21) + IDSP (2019-23)",
+        "note": "Replace geometry with real boundaries from github.com/datta07/INDIAN-SHAPEFILES"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              79.40515770925028,
+              19.244384052862735
+            ],
+            [
+              80.59484229074972,
+              19.244384052862735
+            ],
+            [
+              80.59484229074972,
+              20.255615947137265
+            ],
+            [
+              79.40515770925028,
+              20.255615947137265
+            ],
+            [
+              79.40515770925028,
+              19.244384052862735
+            ]
+          ]
+        ]
+      }
+    }
+  ],
+  "metadata": {
+    "districts": 36,
+    "real_boundary_source": "https://github.com/datta07/INDIAN-SHAPEFILES/tree/master/STATES/MAHARASHTRA",
+    "nfhs_source": "NFHS-5 (2019-21), IIPS Mumbai",
+    "idsp_source": "IDSP, MoHFW, GoI"
+  }
+}
