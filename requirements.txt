@@ -35,8 +35,6 @@ geopandas==0.14.1
 shapely==2.0.2
 fiona==1.9.5
 pyproj==3.6.1
-folium==0.15.1
-streamlit-folium==0.17.0
 
 # ── Visualization
 plotly==5.18.0
@@ -44,7 +42,6 @@ matplotlib==3.8.2
 seaborn==0.13.0
 
 # ── Dashboard
-streamlit==1.29.0
 
 # ── Experiment Tracking
 mlflow==2.8.1

@@ -283,28 +283,20 @@ def step_predict(model, graph, df) -> dict:
 
 
 def step_dashboard() -> None:
-    """Launch the Streamlit dashboard."""
-    import subprocess
-
+    """Show how to access the active HydroCast web dashboard."""
     logger.info("━" * 55)
-    logger.info("STEP 7 — Launching Dashboard")
+    logger.info("STEP 7 — Dashboard Access")
     logger.info("━" * 55)
-    logger.info("Opening HydroCast dashboard at http://localhost:8501")
-    logger.info("Press Ctrl+C to stop.\n")
-
-    dashboard_path = Path(__file__).parent / "src" / "dashboard" / "app.py"
-
-    if not dashboard_path.exists():
-        logger.error(f"Dashboard file not found: {dashboard_path}")
-        logger.info("Generate it using Prompt 16 from the coding guide.")
-        return
-
-    subprocess.run(
-        ["streamlit", "run", str(dashboard_path),
-         "--server.headless", "true",
-         "--browser.gatherUsageStats", "false"],
-        check=True,
+    logger.info("The legacy Streamlit dashboard has been removed.")
+    logger.info("HydroCast now uses the Next.js + FastAPI dashboard stack.\n")
+    logger.info("Local frontend dev server:  cd frontend && npm.cmd run dev")
+    logger.info(
+        "Local API server:           X:\\HydroCast\\.venv\\Scripts\\python.exe -m uvicorn "
+        "frontend.backend.dashboard_api:app --host 127.0.0.1 --port 8000"
     )
+    logger.info("Public dashboard:           https://hydrocast-dashboard.onrender.com/dashboard")
+    logger.info("Public API docs:            https://hydrocast-api.onrender.com/docs")
+    logger.info("")
 
 
 # ══════════════════════════════════════════════════════════════════
