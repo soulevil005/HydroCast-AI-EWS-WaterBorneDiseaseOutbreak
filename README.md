@@ -1,64 +1,64 @@
-# HydroCast ????
-### AI-Powered Early Warning System for Waterborne Disease Outbreak Monitoring in Maharashtra, India
+# HydroCast 🌊🩺  
+### AI-Based Early Warning System for Waterborne Disease Outbreak Monitoring in Maharashtra, India
 
-HydroCast is an intelligent disease surveillance and forecasting platform designed to predict **waterborne disease outbreaks** using machine learning, climate intelligence, and WASH (Water, Sanitation, Hygiene) indicators.
+HydroCast is an intelligent disease surveillance and forecasting platform designed to predict **waterborne disease outbreaks** using machine learning, climate intelligence, and WASH (Water, Sanitation, Hygiene) indicators.  
 
 Built specifically for **Maharashtra, India**, HydroCast helps public health teams, administrators, and researchers proactively identify outbreak risks for diseases such as:
 
-- Cholera
-- Typhoid
+- Cholera  
+- Typhoid  
 - Acute Diarrheal Disease (ADD)
 
-Instead of reacting after outbreaks occur, HydroCast enables **early intervention, smarter planning, and faster response.**
+Instead of reacting after outbreaks occur, HydroCast enables **early intervention, smarter planning, and faster response.** :contentReference[oaicite:0]{index=0}
 
 ---
 
-# ?? Key Features
+# 🚀 Key Features
 
-## ?? District-Level Risk Monitoring
+## 📍 District-Level Risk Monitoring
 Track disease outbreak risk across Maharashtra districts with dynamic scoring and ranking.
 
-## ?? AI Disease Forecasting
+## 🤖 AI Disease Forecasting
 Multi-disease prediction models powered by machine learning and epidemiological signals.
 
-## ??? Interactive Risk Heatmaps
+## 🗺️ Interactive Risk Heatmaps
 Visual dashboards showing district-wise hotspots and risk severity.
 
-## ?? Forecast Trends
+## 📈 Forecast Trends
 Future outbreak probability graphs for Cholera, Typhoid, and ADD.
 
-## ?? Explainable AI (SHAP)
+## 🔍 Explainable AI (SHAP)
 Understand **why** a district is high-risk through feature importance and local explanations.
 
-## ?? Resource Readiness Tracker
+## 🏥 Resource Readiness Tracker
 Monitor medical resources, readiness %, tablets, ORS kits, response units, and field capacity.
 
-## ?? Remedies & Precautions
+## 💡 Remedies & Precautions
 District-specific public health recommendations and mitigation protocols.
 
-## ?? Cloud Deployment Ready
+## ☁️ Cloud Deployment Ready
 Configured for deployment using **Render** with separate frontend + backend services.
 
 ---
 
-# ?? How HydroCast Works
+# 🧠 How HydroCast Works
 
 HydroCast combines multiple real-world signals:
 
-- Historical disease outbreak data
-- Rainfall patterns
-- Temperature
-- Humidity
-- Seasonal patterns
-- WASH indicators
-- Sanitation access
-- District-level trends
+- Historical disease outbreak data  
+- Rainfall patterns  
+- Temperature  
+- Humidity  
+- Seasonal patterns  
+- WASH indicators  
+- Sanitation access  
+- District-level trends  
 
-These are processed through an AI prediction pipeline to generate outbreak risk alerts.
+These are processed through an AI prediction pipeline to generate outbreak risk alerts. :contentReference[oaicite:1]{index=1}
 
 ---
 
-# ??? Tech Stack
+# 🏗️ Tech Stack
 
 | Layer | Technology |
 |------|------------|
@@ -73,73 +73,57 @@ These are processed through an AI prediction pipeline to generate outbreak risk 
 
 ---
 
-# ?? Project Structure
+# 📂 Project Structure
 
 ```bash
 HydroCast/
-�-- frontend/                 # Next.js dashboard + FastAPI API module
-�-- src/                      # ML pipeline, training, evaluation, explainability
-�-- models/                   # Trained model checkpoints
-�-- results/                  # Prediction outputs (.json / .csv)
-�-- run_pipeline.py           # Main execution entry point
-�-- render.yaml               # Render deployment config
-�-- README.md
-```
+│── frontend/                 # Next.js dashboard + FastAPI API module
+│── src/                      # ML pipeline, training, evaluation, explainability
+│── models/                   # Trained model checkpoints
+│── results/                  # Prediction outputs (.json / .csv)
+│── run_pipeline.py           # Main execution entry point
+│── render.yaml               # Render deployment config
+│── README.md
 
 ---
 
-# ?? Local Development Setup
+## ⚙️ Local Run
 
-## 1?? Clone Repository
+### 1. Backend
 
-```bash
-git clone https://github.com/yourusername/hydrocast.git
-cd hydrocast
-```
-
----
-
-## 2?? Backend Setup
-
-```powershell
+```cmd
 cd X:\HydroCast
 .venv\Scripts\python.exe -m uvicorn frontend.backend.dashboard_api:app --host 127.0.0.1 --port 8000
 ```
 
-Backend URLs:
+### 2. Frontend
 
-- API Docs ? [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs)
-- Health Check ? [http://127.0.0.1:8000/health](http://127.0.0.1:8000/health)
-
----
-
-## 3?? Frontend Setup
-
-```powershell
+```cmd
 cd X:\HydroCast\frontend
-npm install
-npm run dev
+npm.cmd install
+npm.cmd run dev
 ```
 
-Frontend URL:
+### 3. Open in Browser
 
-```bash
-http://localhost:3000/dashboard
-```
+- Frontend: `http://localhost:3000/dashboard`
+- FastAPI docs: `http://127.0.0.1:8000/docs`
+- FastAPI health: `http://127.0.0.1:8000/health`
 
 ---
 
-# ?? ML Pipeline Commands
+## Pipeline Commands
 
-## Run Full Pipeline
+### 🧪 Run the full pipeline:
 
-```bash
+```cmd
+cd X:\HydroCast
 python run_pipeline.py --mode all
 ```
 
-## Run Individual Modules
+### Run individual steps:
 
-```bash
+```cmd
 python run_pipeline.py --mode train
 python run_pipeline.py --mode predict
 python run_pipeline.py --mode eval
@@ -147,23 +131,16 @@ python run_pipeline.py --mode explain
 python run_pipeline.py --mode dashboard
 ```
 
----
+## ☁️ Deployment
 
-# ?? Sample Outputs
+The repository includes `render.yaml` for deploying:
 
-HydroCast generates:
-
-```bash
-results/
-+-- predictions.json
-+-- district_risk.csv
-+-- shap_values.json
-+-- evaluation_metrics.csv
-```
+- `hydrocast-api`
+- `hydrocast-dashboard`
 
 ---
 
-# ?? Dashboard Modules
+## 📊 Dashboard Modules
 
 - Login Portal
 - Dashboard Overview
@@ -175,65 +152,13 @@ results/
 
 ---
 
-# ?? Use Cases
-
-## Government Health Departments
-
-Detect outbreaks early and allocate resources efficiently.
-
-## NGOs / Rural Health Missions
-
-Identify sanitation-vulnerable regions.
-
-## Hospitals & PHCs
-
-Prepare medicines, beds, ORS kits, staff.
-
-## Researchers
-
-Analyze disease-climate relationships using AI.
+## ⭐ Support This Project
+If you like HydroCast, consider giving it a ⭐ on GitHub.
 
 ---
 
-# ?? Why HydroCast Matters
+## 🌊 HydroCast
 
-Traditional systems act **after cases rise**. HydroCast predicts risks **before outbreaks spread**.
-
-This enables:
-
-- Faster containment
-- Better planning
-- Reduced mortality
-- Improved sanitation response
-- Data-driven public health decisions
-
----
-
-# ?? Deployment (Render)
-
-Included services:
-
-```yaml
-hydrocast-api
-hydrocast-dashboard
-```
-
-Deploy instantly using:
-
-```bash
-render.yaml
-```
-
----
-
-# ? Support This Project
-
-If you like HydroCast, consider giving it a ? on GitHub.
-
----
-
-# ?? HydroCast
-
-### Predicting outbreaks before they happen.
-
-### AI for Public Health.
+Predicting outbreaks before they happen.
+AI for Public Health.
+"""
