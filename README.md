@@ -9,7 +9,7 @@ Built specifically for **Maharashtra, India**, HydroCast helps public health tea
 - Typhoid  
 - Acute Diarrheal Disease (ADD)
 
-Instead of reacting after outbreaks occur, HydroCast enables **early intervention, smarter planning, and faster response.** :contentReference[oaicite:0]{index=0}
+Instead of reacting after outbreaks occur, HydroCast enables **early intervention, smarter planning, and faster response.** 
 
 ---
 
