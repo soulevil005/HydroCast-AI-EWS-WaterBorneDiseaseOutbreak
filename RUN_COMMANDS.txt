@@ -1,0 +1,30 @@
+HYDROCAST RUN COMMANDS
+
+LOCAL BACKEND
+cd X:\HydroCast
+.venv\Scripts\python.exe -m uvicorn frontend.backend.dashboard_api:app --host 127.0.0.1 --port 8000
+
+LOCAL FRONTEND
+cd X:\HydroCast\frontend
+npm.cmd install
+npm.cmd run dev
+
+OPEN IN BROWSER
+Dashboard:  http://localhost:3000/dashboard
+API Docs:   http://127.0.0.1:8000/docs
+API Health: http://127.0.0.1:8000/health
+
+PIPELINE COMMANDS
+cd X:\HydroCast
+python run_pipeline.py --mode all
+
+
+PRODUCTION-STYLE FRONTEND
+cd X:\HydroCast\frontend
+npm.cmd run build
+npm.cmd run start
+
+RENDER PUBLIC URLS
+Dashboard: https://hydrocast-dashboard.onrender.com/dashboard
+API Docs:  https://hydrocast-api.onrender.com/docs
+API Root:  https://hydrocast-api.onrender.com/health
