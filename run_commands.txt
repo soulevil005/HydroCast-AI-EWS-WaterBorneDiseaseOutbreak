@@ -4,6 +4,10 @@ LOCAL BACKEND
 cd X:\HydroCast
 .venv\Scripts\python.exe -m uvicorn frontend.backend.dashboard_api:app --host 127.0.0.1 --port 8000
 
+RUN FRONTEND
+cd X:\HydroCast\frontend
+npm.cmd run dev
+
 LOCAL FRONTEND
 cd X:\HydroCast\frontend
 npm.cmd install
