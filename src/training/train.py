@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import argparse
 import logging
+import random
 import time
 from pathlib import Path
 from typing import Optional
@@ -31,6 +32,24 @@ from src.models.hydrocast_model  import build_hydrocast_model
 from src.models.seir_constraint  import SEIRRegularizer
 
 logger = logging.getLogger("hydrocast.trainer")
+
+
+def set_global_seed(seed: int) -> None:
+    """Keep direct training runs reproducible."""
+    random.seed(seed)
+    np.random.seed(seed)
+    torch.manual_seed(seed)
+    if torch.cuda.is_available():
+        torch.cuda.manual_seed_all(seed)
+    try:
+        torch.backends.cudnn.deterministic = True
+        torch.backends.cudnn.benchmark = False
+    except Exception:
+        pass
+    try:
+        torch.use_deterministic_algorithms(True, warn_only=True)
+    except Exception:
+        pass
 
 
 # ══════════════════════════════════════════════════════════════════
@@ -108,10 +127,20 @@ def build_dataloaders(
     t_end   = int(n * CONFIG.training.train_split)
     v_end   = int(n * (CONFIG.training.train_split + CONFIG.training.val_split))
 
+    def _seed_worker(worker_id: int) -> None:
+        worker_seed = CONFIG.training.seed + worker_id
+        random.seed(worker_seed)
+        np.random.seed(worker_seed)
+        torch.manual_seed(worker_seed)
+
     def _make_loader(x, y, d, shuffle):
         ds = TensorDataset(x, y, d)
+        generator = torch.Generator()
+        generator.manual_seed(CONFIG.training.seed)
         return DataLoader(ds, batch_size=batch_size,
-                          shuffle=shuffle, num_workers=num_workers)
+                          shuffle=shuffle, num_workers=num_workers,
+                          worker_init_fn=_seed_worker,
+                          generator=generator)
 
     train_loader = _make_loader(X[:t_end],    Y[:t_end],    D[:t_end],    True)
     val_loader   = _make_loader(X[t_end:v_end], Y[t_end:v_end], D[t_end:v_end], False)
@@ -484,6 +513,9 @@ def main():
 
     if args.epochs:
         CONFIG.training.epochs = args.epochs
+
+    set_global_seed(CONFIG.training.seed)
+    logger.info(f"Global seed fixed to: {CONFIG.training.seed}")
 
     # ── Load data
     from src.data_pipeline.data_loader      import merge_all_datasets, generate_synthetic_data

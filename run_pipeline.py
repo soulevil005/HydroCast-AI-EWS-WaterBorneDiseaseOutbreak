@@ -22,6 +22,7 @@ from __future__ import annotations
 import argparse
 import json
 import logging
+import random
 import sys
 import warnings
 from pathlib import Path
@@ -35,11 +36,33 @@ logging.basicConfig(
     datefmt = "%H:%M:%S",
 )
 logger = logging.getLogger("hydrocast.pipeline")
+def set_global_seed(seed: int) -> None:
+    """Make training and inference as reproducible as practical."""
+    random.seed(seed)
+    try:
+        import numpy as np
+        np.random.seed(seed)
+    except ModuleNotFoundError:
+        pass
 
+    try:
+        import torch
 
-# ══════════════════════════════════════════════════════════════════
-# PIPELINE STEPS
-# ══════════════════════════════════════════════════════════════════
+        torch.manual_seed(seed)
+        if torch.cuda.is_available():
+            torch.cuda.manual_seed_all(seed)
+        try:
+            torch.backends.cudnn.deterministic = True
+            torch.backends.cudnn.benchmark = False
+        except Exception:
+            pass
+        try:
+            torch.use_deterministic_algorithms(True, warn_only=True)
+        except Exception:
+            pass
+    except ModuleNotFoundError:
+        pass
+
 
 def step_data(synthetic: bool = True) -> tuple:
     """Load, merge, and feature-engineer all datasets."""
@@ -81,9 +104,9 @@ def step_train(df, graph, fe) -> tuple:
     from src.models.seir_constraint import SEIRRegularizer
     from src.training.train         import HydroCastTrainer, build_dataloaders
 
-    logger.info("━" * 55)
-    logger.info("STEP 2 — Model Training")
-    logger.info("━" * 55)
+    logger.info("-" * 55)
+    logger.info("STEP 2 - Model Training")
+    logger.info("-" * 55)
 
     train_loader, val_loader, test_loader, time_feat_dim = build_dataloaders(
         df, graph, batch_size=CONFIG.training.batch_size,
@@ -101,10 +124,11 @@ def step_train(df, graph, fe) -> tuple:
     trainer.seir_reg.fit_all_districts(df)
 
     results = trainer.fit(train_loader, val_loader)
-    logger.info(f"Training complete — Best val F1: {results['best_val_f1']:.4f}")
-    logger.info("✅ Train step complete.\n")
+    logger.info(f"Training complete - Best val F1: {results['best_val_f1']:.4f}")
+    logger.info("Train step complete.\n")
 
     return model, train_loader, val_loader, test_loader, time_feat_dim
+
 
 
 def step_baselines(df, graph, time_feat_dim) -> None:
@@ -322,7 +346,7 @@ STEP_MAP = {
 
 def main():
     parser = argparse.ArgumentParser(
-        description="HydroCast — AI Early Warning System Pipeline",
+        description="HydroCast - AI Early Warning System Pipeline",
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Examples:
@@ -341,7 +365,7 @@ Examples:
     parser.add_argument(
         "--synthetic",
         action="store_true",
-        help="Use synthetic data — no real IDSP/IMD/NFHS-5 files needed",
+        help="Use synthetic data - no real IDSP/IMD/NFHS-5 files needed",
     )
     parser.add_argument(
         "--epochs",
@@ -349,22 +373,21 @@ Examples:
         default=None,
         help="Override training epochs (default from config)",
     )
-    parser.add_argument(
-        "--skip-train",
-        action="store_true",
-        help="Load existing checkpoint instead of training",
-    )
     args = parser.parse_args()
 
+    from src.config import CONFIG
+
     if args.epochs:
-        from src.config import CONFIG
         CONFIG.training.epochs = args.epochs
         logger.info(f"Epochs overridden to: {args.epochs}")
+
+    set_global_seed(CONFIG.training.seed)
+    logger.info(f"Global seed fixed to: {CONFIG.training.seed}")
 
     steps = STEP_MAP[args.mode]
 
     logger.info("=" * 55)
-    logger.info("  HydroCast — AI Early Warning System")
+    logger.info("  HydroCast - AI Early Warning System")
     logger.info("  Waterborne Disease Outbreak Prediction")
     logger.info("  Maharashtra, India")
     logger.info("=" * 55)
@@ -373,7 +396,6 @@ Examples:
     logger.info(f"Synthetic : {args.synthetic}")
     logger.info("=" * 55 + "\n")
 
-    # ── State variables passed between steps
     df       = None
     graph    = None
     fe       = None
@@ -381,13 +403,11 @@ Examples:
     train_loader = val_loader = test_loader = None
     time_feat_dim = 32
 
-    # ── Execute steps in order
     if "data" in steps:
         df, graph, fe = step_data(synthetic=args.synthetic)
 
-    if "train" in steps and not args.skip_train:
-        model, train_loader, val_loader, test_loader, time_feat_dim = \
-            step_train(df, graph, fe)
+    if "train" in steps:
+        model, train_loader, val_loader, test_loader, time_feat_dim = step_train(df, graph, fe)
 
     if "baselines" in steps:
         step_baselines(df, graph, time_feat_dim)
@@ -405,9 +425,10 @@ Examples:
         step_dashboard()
 
     logger.info("\n" + "=" * 55)
-    logger.info("  ✅ HydroCast pipeline complete!")
+    logger.info("  HydroCast pipeline complete!")
     logger.info("=" * 55)
 
 
 if __name__ == "__main__":
     main()
+
