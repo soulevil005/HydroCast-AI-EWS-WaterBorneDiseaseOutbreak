@@ -84,10 +84,10 @@ HydroCast/
 │── run_pipeline.py           # Main execution entry point
 │── render.yaml               # Render deployment config
 │── README.md
-
+```
 ---
 
-## ⚙️ Local Run
+# ⚙️ Local Run
 
 ### 1. Backend
 
@@ -112,9 +112,9 @@ npm.cmd run dev
 
 ---
 
-## Pipeline Commands
+## 🧪 Pipeline Commands
 
-### 🧪 Run the full pipeline:
+###  Run the full pipeline:
 
 ```cmd
 cd X:\HydroCast
@@ -161,4 +161,3 @@ If you like HydroCast, consider giving it a ⭐ on GitHub.
 
 Predicting outbreaks before they happen.
 AI for Public Health.
-"""
