@@ -1,5 +1,14 @@
 HYDROCAST RUN COMMANDS
 
+INSTALL REQUIREMENTS:
+python -m venv .venv
+.venv\Scripts\activate
+python -m pip install --upgrade pip setuptools wheel
+pip install torch==2.1.0 torchvision==0.16.0
+pip install torch-scatter==2.1.2 torch-sparse==0.6.18 torch-cluster==1.6.3 -f https://data.pyg.org/whl/torch-2.1.0+cpu.html
+pip install torch-geometric==2.4.0
+pip install -r requirements.txt
+
 LOCAL BACKEND
 cd X:\HydroCast
 .venv\Scripts\python.exe -m uvicorn frontend.backend.dashboard_api:app --host 127.0.0.1 --port 8000
